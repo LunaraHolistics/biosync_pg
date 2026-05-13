@@ -245,6 +245,126 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Protocolos QRMA Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Protocolos de Análise QRMA</h2>
+            <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
+              Conheça os protocolos de análise do aparelho de Bioressonância Quântica
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* O que é QRMA */}
+            <div className="card-glow">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O que é QRMA?</h3>
+              <p className="text-[#64748B] leading-relaxed mb-4">
+                Analisador de Ressonância Magnética Quântica - tecnologia Hi-tech que analisa mais de 30 áreas de saúde sem ser invasivo.
+              </p>
+              <p className="text-[#64748B] leading-relaxed">
+                Detecta ressonância entre frequências eletromagnéticas emitidas pelo corpo e as compara com padrões de um organismo saudável.
+              </p>
+            </div>
+
+            {/* Teoria de Funcionamento */}
+            <div className="card-glow">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Como Funciona</h3>
+              <ul className="space-y-3 text-[#64748B]">
+                <li className="flex gap-3">
+                  <span className="text-[#2DD4BF] font-bold">✓</span>
+                  <span>Cada célula emite ondas eletromagnéticas específicas</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#2DD4BF] font-bold">✓</span>
+                  <span>O QRMA captura essas ondas com precisão</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#2DD4BF] font-bold">✓</span>
+                  <span>Compara com padrões de saúde ideal</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#2DD4BF] font-bold">✓</span>
+                  <span>Identifica desequilíbrios energéticos e físicos</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Áreas Analisadas */}
+            <div className="card-glow md:col-span-2">
+              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Áreas Analisadas (30+)</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-semibold text-[#0F172A] mb-3">Órgãos e Sistemas</h4>
+                  <ul className="space-y-2 text-[#64748B] text-sm">
+                    <li>✓ Coração</li>
+                    <li>✓ Cérebro</li>
+                    <li>✓ Pulmões</li>
+                    <li>✓ Rins</li>
+                    <li>✓ Fígado</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#0F172A] mb-3">Nutrição e Toxinas</h4>
+                  <ul className="space-y-2 text-[#64748B] text-sm">
+                    <li>✓ Vitaminas e Minerais</li>
+                    <li>✓ Toxinas</li>
+                    <li>✓ Metais Pesados</li>
+                    <li>✓ Nutrientes Essenciais</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#0F172A] mb-3">Saúde e Beleza</h4>
+                  <ul className="space-y-2 text-[#64748B] text-sm">
+                    <li>✓ Pele e Colágeno</li>
+                    <li>✓ Saúde Ocular</li>
+                    <li>✓ Vitalidade</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#0F172A] mb-3">Condições Específicas</h4>
+                  <ul className="space-y-2 text-[#64748B] text-sm">
+                    <li>✓ Obesidade</li>
+                    <li>✓ Alergias</li>
+                    <li>✓ Desequilíbrios Hormonais</li>
+                    <li>✓ Sedentarismo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Preparação para Análise */}
+            <div className="card-glow md:col-span-2">
+              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Preparação para Melhor Resultado</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold text-[#0F172A] mb-3 flex items-center gap-2">
+                    <span className="text-[#A855F7]">📋</span> Dias Anteriores
+                  </h4>
+                  <ul className="space-y-2 text-[#64748B] text-sm">
+                    <li>• Evitar álcool 2 dias antes</li>
+                    <li>• Evitar café 2 dias antes</li>
+                    <li>• Manter vida regular</li>
+                    <li>• Dormir bem</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#0F172A] mb-3 flex items-center gap-2">
+                    <span className="text-[#2DD4BF]">⏰</span> No Dia da Análise
+                  </h4>
+                  <ul className="space-y-2 text-[#64748B] text-sm">
+                    <li>• Usar roupas soltas e confortáveis</li>
+                    <li>• Manter estômago semi-vazio</li>
+                    <li>• Relaxar e respirar normalmente</li>
+                    <li>• Evitar esportes intensos antes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Diferencial Section */}
       <section className="py-20 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
         <div className="container">
