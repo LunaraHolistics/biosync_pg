@@ -52,12 +52,12 @@ export default function Home() {
                 />
               </div>
               <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                Descubra o que está
-                <span className="gradient-text block">travando sua energia</span>
+                Descubra o que suas células
+                <span className="gradient-text block">estão tentando te dizer</span>
               </h1>
 
               <p className="text-xl text-[#64748B] leading-relaxed">
-                Análise completa com bioressonância magnética quântica + inteligência BioSync + direcionamento terapêutico personalizado
+                Enquanto você dorme, trabalha ou se preocupa, seu corpo está enviando sinais. A maioria das pessoas ignora esses sinais até que virem problemas sérios. O Check-up Bioenergético Completo revela exatamente o que está desequilibrado — em minutos, sem agulhas, sem sangue, sem suposições.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -65,15 +65,19 @@ export default function Home() {
                   onClick={handleWhatsAppClick}
                   className="btn-primary"
                 >
-                  Quero fazer minha análise
+                  Quero Descobrir Meus Dados Bioenergéticos Agora
                 </button>
                 <button
                   onClick={handleWhatsAppClick}
                   className="btn-secondary"
                 >
-                  Falar no WhatsApp
+                  Revelar o Que Meu Corpo Está Tentando Me Dizer
                 </button>
               </div>
+              
+              <p className="text-sm text-[#64748B] pt-2">
+                15 minutos para clareza total. Sem agulhas. Sem espera.
+              </p>
 
               {/* Trust Badge */}
               <div className="flex items-center gap-3 pt-8 border-t border-[#E2E8F0]">
@@ -81,8 +85,8 @@ export default function Home() {
                   <Award size={24} />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0F172A]">Atendimento Profissional</p>
-                  <p className="text-sm text-[#64748B]">Celso Luiz - Psicoterapeuta Holístico</p>
+                  <p className="font-semibold text-[#0F172A]">Engenheiro de Dados + Terapeuta Holístico</p>
+                  <p className="text-sm text-[#64748B]">Celso Biffe - Metodologia Científica Comprovada</p>
                 </div>
               </div>
             </div>
@@ -108,11 +112,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Como Funciona Section */}
+      {/* O Processo em 4 Passos Section */}
       <section id="como-funciona" className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Como Funciona</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">O Processo em 4 Passos</h2>
             <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
               Um processo simples em 3 etapas para transformar sua saúde e bem-estar
             </p>
@@ -203,10 +207,10 @@ export default function Home() {
             {activeTab === 'individual' ? (
               <>
                 {[
-                  { icon: Zap, title: 'Mais Energia', description: 'Sinta-se revitalizado e com disposição renovada para o dia a dia' },
-                  { icon: Moon, title: 'Melhora do Sono', description: 'Durma melhor e acorde descansado e restaurado' },
-                  { icon: Heart, title: 'Equilíbrio Emocional', description: 'Maior estabilidade emocional e bem-estar mental' },
-                  { icon: Dumbbell, title: 'Melhor Desempenho', description: 'Aumente seu desempenho físico e mental' },
+                  { icon: Zap, title: 'Elimine a Fadiga Mental', description: 'Recupere a produtividade que trava seu progresso profissional e pessoal' },
+                  { icon: Moon, title: 'Recupere o Sono Reparador', description: 'Durma profundamente e acorde com energia para quem você ama' },
+                  { icon: Heart, title: 'Identifique Bloqueios Invisíveis', description: 'Descubra o que exames comuns não mostram - dados bioenergéticos precisos' },
+                  { icon: Dumbbell, title: 'Recupere Sua Vitalidade', description: 'Reequilibre sua energia e retome o controle da sua saúde' },
                 ].map((benefit, index) => {
                   const IconComponent = benefit.icon;
                   return (
@@ -223,10 +227,10 @@ export default function Home() {
             ) : (
               <>
                 {[
-                  { icon: Users, title: 'Maior Retenção', description: 'Mantenha seus alunos/clientes mais satisfeitos e engajados' },
-                  { icon: Award, title: 'Diferencial Competitivo', description: 'Destaque-se no mercado com um serviço inovador e exclusivo' },
-                  { icon: TrendingUp, title: 'Resultados Consistentes', description: 'Ofereça resultados mensuráveis e personalizados' },
-                  { icon: Zap, title: 'Novo Fluxo de Receita', description: 'Monetize com um serviço de alto valor agregado' },
+                  { icon: Users, title: 'Ofereça Soluções Reais', description: 'Agregue valor com diagnóstico de dados bioenergéticos precisos' },
+                  { icon: Award, title: 'Diferencial Tecnológico', description: 'Destaque-se com metodologia científica comprovada e inovadora' },
+                  { icon: TrendingUp, title: 'Resultados Mensuráveis', description: 'Demonstre impacto com relatórios de bioressonância detalhados' },
+                  { icon: Zap, title: 'Novo Fluxo de Receita', description: 'Monetize com serviço de alto valor agregado e demanda crescente' },
                 ].map((benefit, index) => {
                   const IconComponent = benefit.icon;
                   return (
@@ -249,27 +253,27 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Protocolos de Análise QRMA</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">O Processo em 4 Passos o Scanner de Saúde Celular?</h2>
             <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
-              Conheça os protocolos de análise do aparelho de Bioressonância Quântica
+              Imagine que cada célula do seu corpo é uma estação de rádio transmitindo sua própria frequência. Quando você está saudável, todas as estações transmitem em harmonia.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* O que é QRMA */}
             <div className="card-glow">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O que é QRMA?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O Check-up Bioenergético Completo</h3>
               <p className="text-[#64748B] leading-relaxed mb-4">
-                Analisador de Ressonância Magnética Quântica - tecnologia Hi-tech que analisa mais de 30 áreas de saúde sem ser invasivo.
+                O BioSync é um scanner que capta as frequências do seu corpo inteiro e as compara com o padrão de uma pessoa saudável.
               </p>
               <p className="text-[#64748B] leading-relaxed">
-                Detecta ressonância entre frequências eletromagnéticas emitidas pelo corpo e as compara com padrões de um organismo saudável.
+                Em segundos, ele identifica quais "estações" estão fora de sintonia e exatamente o que precisa ser reequilibrado. Nenhuma agulha. Nenhuma coleta de sangue. Apenas você colocando a mão em um sensor, e em 15 minutos você tem um mapa completo da sua saúde.
               </p>
             </div>
 
             {/* Teoria de Funcionamento */}
             <div className="card-glow">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Como Funciona</h3>
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O Processo em 4 Passos</h3>
               <ul className="space-y-3 text-[#64748B]">
                 <li className="flex gap-3">
                   <span className="text-[#2DD4BF] font-bold">✓</span>
@@ -400,7 +404,7 @@ export default function Home() {
               onClick={handleWhatsAppClick}
               className="btn-primary"
             >
-              Agendar Análise em Araraquara
+              Quero meu Diagnóstico Bioenergético Agora
             </Button>
           </div>
         </div>
@@ -410,18 +414,21 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Sobre o Atendimento</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Quem Está por Trás da Metodologia</h2>
             
             <div className="card-glow">
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Celso Luiz</h3>
-                  <p className="text-lg font-semibold text-[#2DD4BF] mb-4">Psicoterapeuta Holístico</p>
+                  <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Celso Biffe</h3>
+                  <p className="text-lg font-semibold text-[#2DD4BF] mb-4">Engenheiro de Dados + Terapeuta Holístico Sênior</p>
                   <p className="text-[#64748B] leading-relaxed mb-4">
-                    Especializado em terapias holísticas e análise energética, Celso Luiz combina décadas de experiência em bem-estar integral com a tecnologia mais avançada em bioressonância quântica.
+                    Eu não trabalho com suposições. Eu traduzo a frequência do seu corpo em dados acionáveis. Minha metodologia une o rigor da tecnologia com a profundidade da Saúde Integrativa para criar um mapa de cura exclusivo para você.
                   </p>
-                  <p className="text-[#64748B] leading-relaxed">
-                    Seu compromisso é oferecer análises precisas e direcionamento terapêutico personalizado para cada cliente, transformando vidas através da compreensão profunda da energia e saúde.
+                  <p className="text-[#64748B] leading-relaxed mb-4">
+                    Com uma trajetória marcada por vários anos de estudos e centenas de atendimentos clínicos, meu compromisso é guiar você de volta ao seu bem-estar natural. Para isso, alio o cuidado e o acolhimento das terapias holísticas à extrema precisão da tecnologia.
+                  </p>
+                  <p className="text-[#64748B] leading-relaxed font-semibold text-[#0F172A]">
+                    Não ofereço apenas terapia; ofereço o caminho técnico para o seu equilíbrio real.
                   </p>
                 </div>
               </div>
@@ -429,8 +436,12 @@ export default function Home() {
 
             {/* Testimonials Placeholder */}
             <div className="mt-12 text-center">
-              <p className="text-[#64748B] italic">
-                "Depoimentos de clientes satisfeitos em breve..."
+              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Casos de Sucesso</h3>
+              <p className="text-lg text-[#64748B] font-semibold">
+                Protocolos de BioSync que transformaram rotinas de burnout em alta performance
+              </p>
+              <p className="text-sm text-[#94A3B8] mt-4">
+                Resultados mensuráveis com dados bioenergéticos e acompanhamento personalizado
               </p>
             </div>
           </div>
@@ -441,9 +452,9 @@ export default function Home() {
       <section id="contato" className="py-20 bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6]">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Pronto para Transformar Sua Saúde?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Descubra Seus Dados Bioenergéticos Agora</h2>
             <p className="text-xl mb-12 text-white/90">
-              Preencha o formulário abaixo ou fale conosco no WhatsApp para agendar sua análise com bioressonância BioSync.
+              Pare de viver com incerteza. Obtenha seu mapa de cura preciso em minutos. Fale conosco no WhatsApp ou preencha o formulário para agendar sua análise com tecnologia BioSync.
             </p>
             
             <ContactForm />
@@ -477,7 +488,7 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Navegação</h4>
               <ul className="space-y-2 text-[#CBD5E1]">
-                <li><a href="#como-funciona" className="hover:text-[#2DD4BF] transition-colors">Como Funciona</a></li>
+                <li><a href="#como-funciona" className="hover:text-[#2DD4BF] transition-colors">O Processo em 4 Passos</a></li>
                 <li><a href="#beneficios" className="hover:text-[#2DD4BF] transition-colors">Benefícios</a></li>
                 <li><a href="#localizacao" className="hover:text-[#2DD4BF] transition-colors">Localização</a></li>
                 <li><a href="#contato" className="hover:text-[#2DD4BF] transition-colors">Contato</a></li>
