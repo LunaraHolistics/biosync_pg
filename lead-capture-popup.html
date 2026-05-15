@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up de Captura de Leads - Lunara BioSync</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Backdrop */
+        .popup-backdrop {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .popup-backdrop.active {
+            display: flex;
+        }
+
+        /* Modal */
+        .popup-modal {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            max-width: 28rem;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Botão Fechar */
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+            z-index: 10;
+        }
+
+        .popup-close:hover {
+            background-color: #f3f4f6;
+        }
+
+        .popup-close svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #4b5563;
+        }
+
+        /* Conteúdo */
+        .popup-content {
+            padding: 2rem 2rem 2rem 2rem;
+            padding-top: 3rem;
+        }
+
+        .popup-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #2d1b69;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 640px) {
+            .popup-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .popup-subtitle {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #2dd4bf;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 640px) {
+            .popup-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .popup-description {
+            font-size: 0.875rem;
+            color: #4b5563;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Formulário */
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            padding: 0.75rem 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2dd4bf;
+        }
+
+        .form-input:disabled {
+            background-color: #f3f4f6;
+            cursor: not-allowed;
+        }
+
+        /* Seletor de Contato */
+        .contact-selector {
+            display: flex;
+            gap: 1rem;
+            background-color: #f9fafb;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .radio-label input[type="radio"] {
+            cursor: pointer;
+            accent-color: #2dd4bf;
+        }
+
+        .radio-label span {
+            font-size: 0.875rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        /* Mensagem de Status */
+        .status-message {
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            display: none;
+        }
+
+        .status-message.success {
+            background-color: #f0fdf4;
+            color: #166534;
+            display: block;
+        }
+
+        .status-message.error {
+            background-color: #fef2f2;
+            color: #991b1b;
+            display: block;
+        }
+
+        /* Botão CTA */
+        .popup-cta {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(to right, #6b46c1, #2dd4bf);
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .popup-cta:hover:not(:disabled) {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
+        }
+
+        .popup-cta:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        /* Política de Privacidade */
+        .privacy-policy {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Responsividade */
+        @media (max-width: 640px) {
+            .popup-modal {
+                max-width: 100%;
+            }
+
+            .popup-content {
+                padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+                padding-top: 2.5rem;
+            }
+
+            .popup-cta {
+                font-size: 1rem;
+                padding: 0.875rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Backdrop -->
+    <div id="popupBackdrop" class="popup-backdrop">
+        <!-- Modal -->
+        <div class="popup-modal">
+            <!-- Botão Fechar -->
+            <button id="closeBtn" class="popup-close" aria-label="Fechar pop-up">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Conteúdo -->
+            <div class="popup-content">
+                <h2 class="popup-title">Aguarde! Antes de sair...</h2>
+                
+                <p class="popup-subtitle">
+                    Receba GRÁTIS o "Mapa dos 7 Sinais" e descubra o que está drenando sua energia
+                </p>
+
+                <p class="popup-description">
+                    Identifique os 7 principais sinais de que seu corpo está em estado de alerta energético e o que fazer a respeito.
+                </p>
+
+                <!-- Formulário -->
+                <form id="leadForm" class="popup-form">
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            id="nome" 
+                            name="nome" 
+                            placeholder="Seu nome" 
+                            class="form-input" 
+                            required
+                        />
+                    </div>
+
+                    <!-- Contato -->
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            id="contato" 
+                            name="contato" 
+                            placeholder="Seu melhor contato (email ou WhatsApp)" 
+                            class="form-input" 
+                            required
+                        />
+                    </div>
+
+                    <!-- Seletor de Contato -->
+                    <div class="contact-selector">
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="contatoPor" 
+                                value="email" 
+                                checked
+                            />
+                            <span>E-mail</span>
+                        </label>
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="contatoPor" 
+                                value="whatsapp"
+                            />
+                            <span>WhatsApp</span>
+                        </label>
+                    </div>
+
+                    <!-- Mensagem de Status -->
+                    <div id="statusMessage" class="status-message"></div>
+
+                    <!-- Botão CTA -->
+                    <button type="submit" id="submitBtn" class="popup-cta">
+                        SIM! QUERO O MAPA DOS 7 SINAIS GRÁTIS
+                    </button>
+                </form>
+
+                <!-- Política de Privacidade -->
+                <p class="privacy-policy">
+                    Seus dados estão seguros. Não enviaremos spam. Você receberá um <span id="contactMethod">e-mail</span> com o link para download do PDF.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * ============================================
+         * CONFIGURAÇÃO NECESSÁRIA
+         * ============================================
+         * 
+         * 1. SUBSTITUIR O EMAIL DO FORMSUBMIT:
+         *    - Acesse https://formsubmit.co/
+         *    - Insira seu email e siga as instruções
+         *    - Copie o email fornecido
+         *    - Substitua "seu-email@lunara.com.br" na linha abaixo
+         */
+        const FORMSUBMIT_EMAIL = 'seu-email@lunara.com.br'; // ← SUBSTITUIR AQUI
+
+        /**
+         * 2. SUBSTITUIR O LINK DO PDF:
+         *    - Faça upload do PDF em um serviço (Google Drive, Dropbox, AWS S3, etc.)
+         *    - Obtenha o link de compartilhamento público
+         *    - Substitua "https://seu-link-do-pdf-aqui.com/mapa-dos-7-sinais.pdf" abaixo
+         */
+        const PDF_LINK = 'https://seu-link-do-pdf-aqui.com/mapa-dos-7-sinais.pdf'; // ← SUBSTITUIR AQUI
+
+        /**
+         * 3. SUBSTITUIR O NÚMERO WHATSAPP (OPCIONAL):
+         *    - Formato: 55 + DDD + número (sem caracteres especiais)
+         *    - Exemplo: 5516999999999
+         */
+        const WHATSAPP_NUMBER = '5516999999999'; // ← SUBSTITUIR AQUI (OPCIONAL)
+
+        // ============================================
+        // FIM DA CONFIGURAÇÃO
+        // ============================================
+
+        const backdrop = document.getElementById('popupBackdrop');
+        const closeBtn = document.getElementById('closeBtn');
+        const leadForm = document.getElementById('leadForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMessage = document.getElementById('statusMessage');
+        const contactMethodSpan = document.getElementById('contactMethod');
+        const nomeInput = document.getElementById('nome');
+        const contatoInput = document.getElementById('contato');
+        const contatoPorRadios = document.querySelectorAll('input[name="contatoPor"]');
+
+        // Atualizar método de contato quando mudar a seleção
+        contatoPorRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                contactMethodSpan.textContent = e.target.value === 'email' ? 'e-mail' : 'WhatsApp';
+            });
+        });
+
+        // Mostrar pop-up após 10 segundos
+        setTimeout(() => {
+            backdrop.classList.add('active');
+        }, 10000);
+
+        // Mostrar pop-up se tentar sair (mover mouse para fechar aba)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0) {
+                backdrop.classList.add('active');
+            }
+        });
+
+        // Fechar pop-up
+        closeBtn.addEventListener('click', () => {
+            backdrop.classList.remove('active');
+            resetForm();
+        });
+
+        backdrop.addEventListener('click', (e) => {
+            if (e.target === backdrop) {
+                backdrop.classList.remove('active');
+                resetForm();
+            }
+        });
+
+        // Enviar formulário
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nome = nomeInput.value.trim();
+            const contato = contatoInput.value.trim();
+            const contatoPor = document.querySelector('input[name="contatoPor"]:checked').value;
+
+            // Validação
+            if (!nome || !contato) {
+                showMessage('Por favor, preencha todos os campos.', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            try {
+                // Preparar dados do formulário
+                const formData = new FormData();
+                formData.append('nome', nome);
+                formData.append('contato', contato);
+                formData.append('contatoPor', contatoPor);
+                formData.append('_captcha', 'false'); // Desabilitar CAPTCHA
+                formData.append('_next', PDF_LINK); // Redirecionar para o PDF
+
+                // Enviar via FormSubmit
+                const response = await fetch(`https://formsubmit.co/${FORMSUBMIT_EMAIL}`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    showMessage('✅ Sucesso! Você será redirecionado para o Mapa dos 7 Sinais...', 'success');
+                    
+                    // Redirecionar para o PDF após 1.5 segundos
+                    setTimeout(() => {
+                        window.open(PDF_LINK, '_blank');
+                        backdrop.classList.remove('active');
+                        resetForm();
+                    }, 1500);
+                } else {
+                    showMessage('❌ Erro ao enviar. Tente novamente.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'SIM! QUERO O MAPA DOS 7 SINAIS GRÁTIS';
+                }
+            } catch (error) {
+                console.error('Erro ao enviar formulário:', error);
+                showMessage('❌ Erro ao enviar. Verifique sua conexão.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SIM! QUERO O MAPA DOS 7 SINAIS GRÁTIS';
+            }
+        });
+
+        // Mostrar mensagem de status
+        function showMessage(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message ${type}`;
+        }
+
+        // Resetar formulário
+        function resetForm() {
+            leadForm.reset();
+            statusMessage.className = 'status-message';
+            statusMessage.textContent = '';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'SIM! QUERO O MAPA DOS 7 SINAIS GRÁTIS';
+            contactMethodSpan.textContent = 'e-mail';
+        }
+    </script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, Zap, Moon, Heart, Dumbbell, Users, TrendingUp, Award, CheckCircle2, AlertCircle, Smile } from 'lucide-react';
 import Header from '@/components/Header';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import LeadCapturePopup from '@/components/LeadCapturePopup';
 import { toast } from 'sonner';
 
 /**
@@ -702,9 +703,13 @@ export default function Home() {
             <p className="mt-2">Desenvolvido com ❤️ para sua saúde integral</p>
           </div>
         </div>
-      </footer>
-
+       </footer>
       <WhatsAppButton />
+      <LeadCapturePopup 
+        pdfLink="https://seu-link-do-pdf-aqui.com/mapa-dos-7-sinais.pdf"
+        emailDestino="seu-email@lunara.com.br"
+        whatsappNumber="5516999999999"
+      />
     </div>
   );
 }
