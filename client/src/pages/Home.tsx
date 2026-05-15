@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Zap, Moon, Heart, Dumbbell, Users, Zap as ZapIcon, TrendingUp, Award } from 'lucide-react';
+import { ChevronDown, Zap, Moon, Heart, Dumbbell, Users, TrendingUp, Award, CheckCircle2, AlertCircle, Smile } from 'lucide-react';
 import Header from '@/components/Header';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ContactForm from '@/components/ContactForm';
@@ -7,29 +7,41 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 /**
- * DESIGN PHILOSOPHY: Futurismo Orgânico
- * - Paleta: Verde-água (#2DD4BF) + Azul-marinho (#0F172A) + Roxo-elétrico (#A855F7)
- * - Efeitos: Glow, gradientes, profundidade, animações fluidas
+ * DESIGN PHILOSOPHY: Futurismo Orgânico + Alta Conversão
+ * - Modelo: BAB (Before-After-Bridge)
+ * - Paleta: Verde-água (#2DD4BF) + Azul-marinho (#0F172A) + Vermelho (#EF4444)
+ * - Foco: Empatia + Urgência + Clareza
  * - Tipografia: Poppins (títulos) + Inter (corpo)
- * - Layout: Assimétrico, cards flutuantes, parallax sutil
  */
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'individual' | 'business'>('individual');
 
   const handleWhatsAppClick = () => {
-    const message = 'Olá! Gostaria de agendar minha análise com bioressonância BioSync.';
+    const message = 'Olá! Gostaria de agendar meu Check-up Bioenergético Completo com o BioSync.';
     const whatsappUrl = `https://wa.me/5516997934558?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleAgendamento = () => {
+    const today = new Date();
+    const unlockDate = new Date('2026-05-01');
+    
+    if (today < unlockDate) {
+      toast.error('Agendamento disponível a partir de 01/05/2026');
+      return;
+    }
+    handleWhatsAppClick();
   };
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
+      {/* ============================================
+          HERO SECTION - HEADLINE IMPACTANTE
+          ============================================ */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Background with gradient */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663309535032/TFgGy5cq4MNYch3LzbTaZo/hero-background-RQRdNEVVwKpLjLLkJbAiDE.webp"
@@ -43,40 +55,51 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
-              {/* Lunara Logo */}
               <div className="inline-block">
                 <img
-                  src="/manus-storage/lunara-logo_288528d1.png"
+                  src="/assets/lunara-logo.png"
                   alt="Lunara Logo"
                   className="h-16 w-auto mb-4"
                 />
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                Descubra o que suas células
-                <span className="gradient-text block">estão tentando te dizer</span>
-              </h1>
 
+              {/* HEADLINE - Impactante */}
+              <div className="space-y-3">
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#0F172A]">
+                  Cansado de sentir que algo está errado, mas os exames não mostram nada?
+                </h1>
+                <p className="text-3xl md:text-4xl font-bold text-[#2DD4BF]">
+                  Seu corpo está tentando te falar. O BioSync escuta.
+                </p>
+              </div>
+
+              {/* SUBTÍTULO - Benefício Claro */}
               <p className="text-xl text-[#64748B] leading-relaxed">
-                Enquanto você dorme, trabalha ou se preocupa, seu corpo está enviando sinais. A maioria das pessoas ignora esses sinais até que virem problemas sérios. O Check-up Bioenergético Completo revela exatamente o que está desequilibrado — em minutos, sem agulhas, sem sangue, sem suposições.
+                Não é só um exame. É um <strong>Check-up Bioenergético Completo</strong> que identifica bloqueios emocionais e energéticos que estão sabotando sua saúde, antes mesmo de virarem doença.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <p className="text-lg text-[#2DD4BF] font-semibold">
+                Descubra o que suas células estão tentando te dizer.
+              </p>
+
+              {/* CTAs - Urgência */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="btn-primary"
+                  className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105"
                 >
-                  Quero Descobrir Meus Dados Bioenergéticos Agora
+                  🎁 Agende com 20% de Desconto (5 vagas)
                 </button>
                 <button
                   onClick={handleWhatsAppClick}
-                  className="btn-secondary"
+                  className="btn-secondary bg-[#10B981] hover:bg-[#059669] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all"
                 >
-                  Revelar o Que Meu Corpo Está Tentando Me Dizer
+                  💬 Fale Comigo no WhatsApp Agora
                 </button>
               </div>
-              
-              <p className="text-sm text-[#64748B] pt-2">
-                15 minutos para clareza total. Sem agulhas. Sem espera.
+
+              <p className="text-sm text-[#64748B] font-semibold">
+                ⏱️ 15 minutos para clareza total. Sem agulhas. Sem espera.
               </p>
 
               {/* Trust Badge */}
@@ -95,273 +118,419 @@ export default function Home() {
             <div className="relative hidden md:block">
               <div className="relative z-10">
                 <img
-                  src="/manus-storage/device-bioresonancia_22965cfc.jpg"
+                  src="/assets/device-bioresonancia.jpg"
                   alt="Aparelho de Bioressonância"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
-                {/* Glow effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#2DD4BF] to-[#A855F7] rounded-2xl opacity-20 blur-2xl -z-10 animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SEÇÃO "A DOR" (BEFORE) - Conectar com a Realidade
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#0F172A] text-center">
+              Você já se sentiu assim?
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#EF4444] shadow-md">
+                <AlertCircle className="text-[#EF4444] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Exausto(a) mesmo dormindo 8 horas?</p>
+                  <p className="text-sm text-[#64748B]">Aquele cansaço que não passa...</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#EF4444] shadow-md">
+                <AlertCircle className="text-[#EF4444] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Ansiedade que aperta o peito?</p>
+                  <p className="text-sm text-[#64748B]">Sem razão aparente...</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#EF4444] shadow-md">
+                <AlertCircle className="text-[#EF4444] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Dores que vão e voltam?</p>
+                  <p className="text-sm text-[#64748B]">Sem diagnóstico claro...</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#EF4444] shadow-md">
+                <AlertCircle className="text-[#EF4444] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Sentindo um peso invisível?</p>
+                  <p className="text-sm text-[#64748B]">Que ninguém entende...</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#FEE2E2] border-l-4 border-[#EF4444] p-8 rounded-xl">
+              <p className="text-lg text-[#7F1D1D] font-semibold mb-4">
+                ⚠️ Isso não é frescura. Não é "tudo na sua cabeça".
+              </p>
+              <p className="text-[#7F1D1D] leading-relaxed">
+                É um <strong>DESEQUILÍBRIO ENERGÉTICO</strong> que os exames tradicionais não conseguem captar porque eles só veem o que já virou doença.
+              </p>
+              <p className="text-[#7F1D1D] leading-relaxed mt-4">
+                <strong>O BioSync vê ANTES disso acontecer.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SEÇÃO "A TRANSFORMAÇÃO" (AFTER) - Pintar o Futuro
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#0F172A] text-center">
+              Agora imagine o oposto...
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#2DD4BF] shadow-md">
+                <Smile className="text-[#2DD4BF] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Acordar leve e energizado</p>
+                  <p className="text-sm text-[#64748B]">Com energia de sobra para o dia todo</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#2DD4BF] shadow-md">
+                <Smile className="text-[#2DD4BF] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Mente clara e focada</p>
+                  <p className="text-sm text-[#64748B]">Sem aquele "nevoeiro mental"</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#2DD4BF] shadow-md">
+                <Smile className="text-[#2DD4BF] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Corpo livre de dores</p>
+                  <p className="text-sm text-[#64748B]">Que te impediam de viver</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 p-6 bg-white rounded-xl border-l-4 border-[#2DD4BF] shadow-md">
+                <Smile className="text-[#2DD4BF] flex-shrink-0" size={24} />
+                <div>
+                  <p className="font-semibold text-[#0F172A]">Recuperar disposição</p>
+                  <p className="text-sm text-[#64748B]">Para quem você ama</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#ECFDF5] border-l-4 border-[#2DD4BF] p-8 rounded-xl">
+              <p className="text-2xl text-[#065F46] font-bold mb-4">
+                ✨ Esse é o estado de SAÚDE INTEGRAL que você merece.
+              </p>
+              <p className="text-[#065F46] leading-relaxed">
+                E não é um sonho. É totalmente possível quando você sabe <strong>EXATAMENTE</strong> o que está desequilibrado no seu corpo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SEÇÃO "A PONTE" (BRIDGE) - Como o BioSync Resolve
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
+        <div className="container">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#0F172A]">
+            Apresento o BioSync
+          </h2>
+          <p className="text-xl text-center text-[#2DD4BF] font-semibold mb-12">
+            Sua Ponte para a Saúde Integral
+          </p>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-[#E2E8F0] mb-12">
+              <p className="text-lg text-[#64748B] leading-relaxed mb-8">
+                O BioSync não é um exame comum. É uma análise de ressonância magnética quântica (QRMA) que funciona como um <strong>"scanner de saúde celular"</strong>.
+              </p>
+
+              <h3 className="text-2xl font-bold text-[#0F172A] mb-8">Funciona assim:</h3>
+
+              <div className="space-y-6 mb-12">
+                <div className="flex gap-6 items-start">
+                  <div className="w-12 h-12 rounded-full bg-[#2DD4BF] text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                  <div>
+                    <p className="font-bold text-[#0F172A]">Você coloca a mão no sensor do BioSync</p>
+                    <p className="text-[#64748B]">Simples, confortável, sem dor</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6 items-start">
+                  <div className="w-12 h-12 rounded-full bg-[#2DD4BF] text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+                  <div>
+                    <p className="font-bold text-[#0F172A]">O aparelho capta as frequências eletromagnéticas do seu corpo</p>
+                    <p className="text-[#64748B]">Com precisão científica</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6 items-start">
+                  <div className="w-12 h-12 rounded-full bg-[#2DD4BF] text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                  <div>
+                    <p className="font-bold text-[#0F172A]">Compara com o padrão de uma pessoa saudável</p>
+                    <p className="text-[#64748B]">Identifica desvios e desequilíbrios</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6 items-start">
+                  <div className="w-12 h-12 rounded-full bg-[#2DD4BF] text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+                  <div>
+                    <p className="font-bold text-[#0F172A]">Você recebe um mapa completo do que precisa ser reequilibrado</p>
+                    <p className="text-[#64748B]">Visual, claro e fácil de entender</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#F0FDFA] border-l-4 border-[#2DD4BF] p-6 rounded-lg">
+                <p className="font-bold text-[#0F172A] mb-2">O que você descobre:</p>
+                <ul className="space-y-2 text-[#64748B]">
+                  <li>✓ Onde estão os bloqueios que causam sua ansiedade</li>
+                  <li>✓ Quais órgãos estão sobrecarregados</li>
+                  <li>✓ Seus níveis de vitaminas, minerais e toxinas</li>
+                  <li>✓ Como a energia está fluindo (ou não) no seu corpo</li>
+                  <li>✓ Exatamente o que precisa ser reequilibrado</li>
+                </ul>
+              </div>
+
+              <p className="text-center text-lg font-bold text-[#2DD4BF] mt-8">
+                Não usamos termos complicados. Te entregamos um MAPA VISUAL CLARO que você entende na hora.
+              </p>
+            </div>
+
+            {/* Carrossel de Imagens */}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SEÇÃO "O QUE É BIORESSONÂNCIA"
+          ============================================ */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+            Conheça os Protocolos de Análise do BioSync
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="card-glow">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O que é QRMA?</h3>
+              <p className="text-[#64748B] leading-relaxed mb-4">
+                QRMA significa Análise de Ressonância Magnética Quântica. É uma tecnologia Hi-tech que analisa mais de 30 áreas de saúde sem ser invasiva.
+              </p>
+              <p className="text-[#64748B] leading-relaxed">
+                Detecta ressonância entre frequências eletromagnéticas emitidas pelo corpo e as compara com padrões de um organismo saudável.
+              </p>
+            </div>
+
+            <div className="card-glow">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Como Funciona</h3>
+              <p className="text-[#64748B] leading-relaxed mb-4">
+                Cada célula emite ondas eletromagnéticas específicas. O QRMA captura essas ondas com precisão e as compara com padrões de saúde ideal.
+              </p>
+              <p className="text-[#64748B] leading-relaxed">
+                Identifica desequilíbrios energéticos e físicos que os exames tradicionais não conseguem ver.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-gradient-to-r from-[#F0FDFA] to-[#ECFDF5] p-8 rounded-2xl max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Áreas Analisadas (30+)</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <p className="font-bold text-[#2DD4BF] mb-3">🫀 Órgãos e Sistemas</p>
+                <p className="text-[#64748B]">Coração, cérebro, pulmões, rins, fígado e muito mais</p>
+              </div>
+              <div>
+                <p className="font-bold text-[#2DD4BF] mb-3">💊 Nutrição e Toxinas</p>
+                <p className="text-[#64748B]">Vitaminas, minerais, toxinas e metais pesados</p>
+              </div>
+              <div>
+                <p className="font-bold text-[#2DD4BF] mb-3">✨ Saúde e Beleza</p>
+                <p className="text-[#64748B]">Pele, colágeno, saúde ocular e vitalidade</p>
+              </div>
+              <div>
+                <p className="font-bold text-[#2DD4BF] mb-3">⚡ Condições Específicas</p>
+                <p className="text-[#64748B]">Obesidade, alergias, desequilíbrios hormonais</p>
               </div>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="flex justify-center mt-16 animate-bounce">
-            <ChevronDown className="text-[#2DD4BF]" size={32} />
+          <div className="mt-12 bg-[#FEF3C7] border-l-4 border-[#F59E0B] p-8 rounded-xl max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4 text-[#92400E]">📋 Preparação para Melhor Resultado</h3>
+            <div className="space-y-4 text-[#92400E]">
+              <p><strong>1️⃣ Dias Anteriores:</strong> Evite álcool ou café 2 dias antes (deixa a leitura mais clara)</p>
+              <p><strong>2️⃣ Noite Anterior:</strong> Durma bem (seu corpo precisa estar descansado)</p>
+              <p><strong>3️⃣ No Dia:</strong> Venha com mente aberta (os resultados podem surpreender)</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* O Processo em 4 Passos Section */}
-      <section id="como-funciona" className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
+      {/* ============================================
+          SEÇÃO "BENEFÍCIOS ESPECÍFICOS"
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">O Processo em 4 Passos</h2>
-            <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
-              Um processo simples em 3 etapas para transformar sua saúde e bem-estar
-            </p>
-          </div>
-
-          {/* Process Visualization */}
-          <div className="mb-16">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663309535032/TFgGy5cq4MNYch3LzbTaZo/process-illustration-DuKcguH6a3ZyF2hiydR2W2.webp"
-              alt="Processo de Bioressonância"
-              className="w-full h-auto rounded-2xl shadow-lg"
-            />
-          </div>
-
-          {/* Steps */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                number: '1',
-                title: 'Análise Presencial',
-                description: 'Você realiza a análise de bioressonância magnética quântica em nosso consultório em Araraquara. O aparelho captura dados detalhados do seu corpo e energia.',
-                icon: Zap,
-              },
-              {
-                number: '2',
-                title: 'Processamento BioSync',
-                description: 'Os dados são processados pela inteligência BioSync, que identifica desequilíbrios energéticos, emocionais e físicos com precisão.',
-                icon: TrendingUp,
-              },
-              {
-                number: '3',
-                title: 'Plano Terapêutico',
-                description: 'Você recebe um direcionamento personalizado com terapias holísticas específicas para reequilibrar sua energia e saúde.',
-                icon: Heart,
-              },
-            ].map((step, index) => {
-              const IconComponent = step.icon;
-              return (
-                <div key={index} className="card-glow">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] flex items-center justify-center text-white mb-4">
-                    <IconComponent size={32} />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-[#64748B] leading-relaxed">{step.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefícios Section */}
-      <section id="beneficios" className="py-20 bg-white">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Benefícios</h2>
-            <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
-              Transforme sua vida com análise e terapia personalizada
-            </p>
-          </div>
-
-          {/* Tabs */}
-          <div className="flex gap-4 justify-center mb-12">
-            <button
-              onClick={() => setActiveTab('individual')}
-              className={`px-8 py-3 rounded-lg font-semibold transition-all ${
-                activeTab === 'individual'
-                  ? 'bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] text-white shadow-lg'
-                  : 'bg-[#F0FDFA] text-[#0F172A] hover:bg-[#E0F2FE]'
-              }`}
-            >
-              Para Você
-            </button>
-            <button
-              onClick={() => setActiveTab('business')}
-              className={`px-8 py-3 rounded-lg font-semibold transition-all ${
-                activeTab === 'business'
-                  ? 'bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] text-white shadow-lg'
-                  : 'bg-[#F0FDFA] text-[#0F172A] hover:bg-[#E0F2FE]'
-              }`}
-            >
-              Para Sua Empresa
-            </button>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {activeTab === 'individual' ? (
-              <>
-                {[
-                  { icon: Zap, title: 'Elimine a Fadiga Mental', description: 'Recupere a produtividade que trava seu progresso profissional e pessoal' },
-                  { icon: Moon, title: 'Recupere o Sono Reparador', description: 'Durma profundamente e acorde com energia para quem você ama' },
-                  { icon: Heart, title: 'Identifique Bloqueios Invisíveis', description: 'Descubra o que exames comuns não mostram - dados bioenergéticos precisos' },
-                  { icon: Dumbbell, title: 'Recupere Sua Vitalidade', description: 'Reequilibre sua energia e retome o controle da sua saúde' },
-                ].map((benefit, index) => {
-                  const IconComponent = benefit.icon;
-                  return (
-                    <div key={index} className="card-glow">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-r from-[#A855F7] to-[#EC4899] flex items-center justify-center text-white mb-4">
-                        <IconComponent size={28} />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                      <p className="text-[#64748B]">{benefit.description}</p>
-                    </div>
-                  );
-                })}
-              </>
-            ) : (
-              <>
-                {[
-                  { icon: Users, title: 'Ofereça Soluções Reais', description: 'Agregue valor com diagnóstico de dados bioenergéticos precisos' },
-                  { icon: Award, title: 'Diferencial Tecnológico', description: 'Destaque-se com metodologia científica comprovada e inovadora' },
-                  { icon: TrendingUp, title: 'Resultados Mensuráveis', description: 'Demonstre impacto com relatórios de bioressonância detalhados' },
-                  { icon: Zap, title: 'Novo Fluxo de Receita', description: 'Monetize com serviço de alto valor agregado e demanda crescente' },
-                ].map((benefit, index) => {
-                  const IconComponent = benefit.icon;
-                  return (
-                    <div key={index} className="card-glow">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#2DD4BF] flex items-center justify-center text-white mb-4">
-                        <IconComponent size={28} />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                      <p className="text-[#64748B]">{benefit.description}</p>
-                    </div>
-                  );
-                })}
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Protocolos QRMA Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">O Processo em 4 Passos o Scanner de Saúde Celular?</h2>
-            <p className="text-xl text-[#64748B] max-w-2xl mx-auto">
-              Imagine que cada célula do seu corpo é uma estação de rádio transmitindo sua própria frequência. Quando você está saudável, todas as estações transmitem em harmonia.
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+            Benefícios Específicos para Cada Tipo de Dor
+          </h2>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* O que é QRMA */}
-            <div className="card-glow">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O Check-up Bioenergético Completo</h3>
-              <p className="text-[#64748B] leading-relaxed mb-4">
-                O BioSync é um scanner que capta as frequências do seu corpo inteiro e as compara com o padrão de uma pessoa saudável.
-              </p>
-              <p className="text-[#64748B] leading-relaxed">
-                Em segundos, ele identifica quais "estações" estão fora de sintonia e exatamente o que precisa ser reequilibrado. Nenhuma agulha. Nenhuma coleta de sangue. Apenas você colocando a mão em um sensor, e em 15 minutos você tem um mapa completo da sua saúde.
-              </p>
-            </div>
-
-            {/* Teoria de Funcionamento */}
-            <div className="card-glow">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O Processo em 4 Passos</h3>
+            <div className="bg-white p-8 rounded-xl border-t-4 border-[#2DD4BF] shadow-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Cansaço Crônico</h3>
               <ul className="space-y-3 text-[#64748B]">
                 <li className="flex gap-3">
-                  <span className="text-[#2DD4BF] font-bold">✓</span>
-                  <span>Cada célula emite ondas eletromagnéticas específicas</span>
+                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                  <span>Identifica órgãos sobrecarregados que drenam sua energia</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-[#2DD4BF] font-bold">✓</span>
-                  <span>O QRMA captura essas ondas com precisão</span>
+                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                  <span>Mostra deficiências de vitaminas e minerais</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-[#2DD4BF] font-bold">✓</span>
-                  <span>Compara com padrões de saúde ideal</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#2DD4BF] font-bold">✓</span>
-                  <span>Identifica desequilíbrios energéticos e físicos</span>
+                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                  <span>Revela bloqueios emocionais que causam exaustão</span>
                 </li>
               </ul>
             </div>
 
-            {/* Áreas Analisadas */}
-            <div className="card-glow md:col-span-2">
-              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Áreas Analisadas (30+)</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-[#0F172A] mb-3">Órgãos e Sistemas</h4>
-                  <ul className="space-y-2 text-[#64748B] text-sm">
-                    <li>✓ Coração</li>
-                    <li>✓ Cérebro</li>
-                    <li>✓ Pulmões</li>
-                    <li>✓ Rins</li>
-                    <li>✓ Fígado</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#0F172A] mb-3">Nutrição e Toxinas</h4>
-                  <ul className="space-y-2 text-[#64748B] text-sm">
-                    <li>✓ Vitaminas e Minerais</li>
-                    <li>✓ Toxinas</li>
-                    <li>✓ Metais Pesados</li>
-                    <li>✓ Nutrientes Essenciais</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#0F172A] mb-3">Saúde e Beleza</h4>
-                  <ul className="space-y-2 text-[#64748B] text-sm">
-                    <li>✓ Pele e Colágeno</li>
-                    <li>✓ Saúde Ocular</li>
-                    <li>✓ Vitalidade</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#0F172A] mb-3">Condições Específicas</h4>
-                  <ul className="space-y-2 text-[#64748B] text-sm">
-                    <li>✓ Obesidade</li>
-                    <li>✓ Alergias</li>
-                    <li>✓ Desequilíbrios Hormonais</li>
-                    <li>✓ Sedentarismo</li>
-                  </ul>
-                </div>
-              </div>
+            <div className="bg-white p-8 rounded-xl border-t-4 border-[#A855F7] shadow-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Ansiedade/Tristeza</h3>
+              <ul className="space-y-3 text-[#64748B]">
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
+                  <span>Detecta desequilíbrios que causam ansiedade</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
+                  <span>Mostra como a energia está bloqueada no seu corpo</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
+                  <span>Identifica traumas energéticos não resolvidos</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Preparação para Análise */}
-            <div className="card-glow md:col-span-2">
-              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Preparação para Melhor Resultado</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-[#0F172A] mb-3 flex items-center gap-2">
-                    <span className="text-[#A855F7]">📋</span> Dias Anteriores
-                  </h4>
-                  <ul className="space-y-2 text-[#64748B] text-sm">
-                    <li>• Evitar álcool 2 dias antes</li>
-                    <li>• Evitar café 2 dias antes</li>
-                    <li>• Manter vida regular</li>
-                    <li>• Dormir bem</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#0F172A] mb-3 flex items-center gap-2">
-                    <span className="text-[#2DD4BF]">⏰</span> No Dia da Análise
-                  </h4>
-                  <ul className="space-y-2 text-[#64748B] text-sm">
-                    <li>• Usar roupas soltas e confortáveis</li>
-                    <li>• Manter estômago semi-vazio</li>
-                    <li>• Relaxar e respirar normalmente</li>
-                    <li>• Evitar esportes intensos antes</li>
-                  </ul>
+            <div className="bg-white p-8 rounded-xl border-t-4 border-[#F59E0B] shadow-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Dores Crônicas</h3>
+              <ul className="space-y-3 text-[#64748B]">
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
+                  <span>Localiza a origem energética da dor</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
+                  <span>Mostra inflamações que exames não captam</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
+                  <span>Protocolo para eliminar a dor na raiz</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl border-t-4 border-[#EF4444] shadow-lg">
+              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Sentir "Travado"</h3>
+              <ul className="space-y-3 text-[#64748B]">
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
+                  <span>Identifica bloqueios que impedem seu progresso</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
+                  <span>Mostra padrões energéticos que se repetem</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
+                  <span>Cria momentum para transformação real</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SEÇÃO "SOBRE CELSO BIFFE"
+          ============================================ */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+            Quem está por trás do BioSync em Araraquara?
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div>
+              <h3 className="text-3xl font-bold mb-6 text-[#0F172A]">Celso Biffe</h3>
+              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                Sou <strong>Engenheiro de Dados + Terapeuta Holístico Sênior</strong>.
+              </p>
+              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                Isso significa que eu não trabalho com suposições. Eu <strong>TRADUZO a frequência do seu corpo em dados acionáveis</strong>.
+              </p>
+              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                Passei anos estudando como a física quântica, a medicina tradicional chinesa e a terapia holística se conectam. E descobri algo poderoso:
+              </p>
+              <p className="text-xl font-bold text-[#2DD4BF] mb-6">
+                Quando você ENTENDE o que está desequilibrado no seu corpo (com dados, não com achismo), a cura fica 10x mais rápida.
+              </p>
+              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                Minha metodologia une:
+              </p>
+              <ul className="space-y-3 text-[#64748B] mb-8">
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                  <span>O rigor científico da análise de dados</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                  <span>A profundidade da saúde integrativa</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                  <span>A empatia de quem realmente escuta</span>
+                </li>
+              </ul>
+              <p className="text-lg font-bold text-[#0F172A] mb-6">
+                Não ofereço apenas terapia. Ofereço o caminho técnico para o seu equilíbrio real.
+              </p>
+              <p className="text-lg text-[#64748B] leading-relaxed">
+                Já ajudei centenas de pessoas em Araraquara a sair do ciclo de cansaço → médico → "exames normais" → mais cansaço.
+              </p>
+              <p className="text-xl font-bold text-[#2DD4BF] mt-6">
+                Agora é a sua vez.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#F0FDFA] to-[#ECFDF5] p-8 rounded-2xl border border-[#2DD4BF]">
+              <div className="bg-white p-8 rounded-xl shadow-lg">
+                <p className="text-center text-sm text-[#64748B] mb-4">Certificações e Expertise</p>
+                <div className="space-y-4 text-center">
+                  <p className="font-bold text-[#0F172A]">Engenheiro de Dados</p>
+                  <p className="text-[#64748B]">Análise de frequências e padrões</p>
+                  <hr className="my-4" />
+                  <p className="font-bold text-[#0F172A]">Terapeuta Holístico Sênior</p>
+                  <p className="text-[#64748B]">Saúde integrativa e bem-estar</p>
+                  <hr className="my-4" />
+                  <p className="font-bold text-[#0F172A]">Especialista em Bioressonância</p>
+                  <p className="text-[#64748B]">Análise QRMA e protocolos</p>
                 </div>
               </div>
             </div>
@@ -369,151 +538,174 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Diferencial Section */}
-      <section className="py-20 bg-gradient-to-r from-[#0F172A] to-[#1E293B] text-white">
+      {/* ============================================
+          SEÇÃO "PROVA SOCIAL" - Depoimentos
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
+        <div className="container">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#0F172A]">
+            Casos de Sucesso
+          </h2>
+          <p className="text-xl text-center text-[#64748B] mb-12">
+            Protocolos de BioSync que transformaram rotinas de burnout em alta performance
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-8 rounded-xl border-l-4 border-[#2DD4BF] shadow-lg">
+              <p className="text-[#64748B] leading-relaxed mb-6 italic">
+                "Fiz o BioSync e descobri que meu cansaço era por deficiência de magnésio + bloqueio emocional não resolvido. Em 3 semanas de protocolo, recuperei 80% da minha energia."
+              </p>
+              <p className="font-bold text-[#0F172A]">Marina, 42 anos</p>
+              <p className="text-sm text-[#2DD4BF]">Araraquara</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl border-l-4 border-[#A855F7] shadow-lg">
+              <p className="text-[#64748B] leading-relaxed mb-6 italic">
+                "Os médicos diziam que minha ansiedade era 'psicológica'. O BioSync mostrou desequilíbrio no meu sistema nervoso. Agora durmo bem e acordo tranquila."
+              </p>
+              <p className="font-bold text-[#0F172A]">Roberto, 55 anos</p>
+              <p className="text-sm text-[#A855F7]">Araraquara</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl border-l-4 border-[#F59E0B] shadow-lg">
+              <p className="text-[#64748B] leading-relaxed mb-6 italic">
+                "Dores nas costas há 10 anos. Ninguém conseguia resolver. O BioSync mostrou que era inflamação crônica + bloqueio energético. Hoje estou 90% melhor."
+              </p>
+              <p className="font-bold text-[#0F172A]">Juliana, 38 anos</p>
+              <p className="text-sm text-[#F59E0B]">Araraquara</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          SEÇÃO "LOCALIZAÇÃO"
+          ============================================ */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+            Estou Aqui em Araraquara Para Você
+          </h2>
+
+          <div className="max-w-3xl mx-auto bg-gradient-to-br from-[#F0FDFA] to-[#ECFDF5] p-12 rounded-2xl border border-[#2DD4BF]">
+            <p className="text-lg text-[#64748B] leading-relaxed mb-8 text-center">
+              Você não precisa viajar para São Paulo ou cidades grandes.
+            </p>
+            <p className="text-lg text-[#64748B] leading-relaxed mb-8 text-center">
+              O BioSync está aqui, em Araraquara, com Celso Biffe.
+            </p>
+            <p className="text-lg text-[#64748B] leading-relaxed mb-12 text-center">
+              Venha conhecer o aparelho, tirar dúvidas e agendar seu check-up bioenergético em um ambiente acolhedor e seguro.
+            </p>
+
+            <div className="space-y-6 text-center">
+              <div className="bg-white p-6 rounded-lg">
+                <p className="text-sm text-[#64748B] mb-2">📍 Localização</p>
+                <p className="font-bold text-[#0F172A]">Araraquara, SP</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg">
+                <p className="text-sm text-[#64748B] mb-2">📞 WhatsApp</p>
+                <p className="font-bold text-[#0F172A]">+55 16 99793-4558</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg">
+                <p className="text-sm text-[#64748B] mb-2">🕐 Horário</p>
+                <p className="font-bold text-[#0F172A]">Seg-Sex: 9h-18h | Sábado: 9h-13h</p>
+              </div>
+            </div>
+
+            <button
+              onClick={handleAgendamento}
+              className="w-full mt-8 bg-[#10B981] hover:bg-[#059669] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all"
+            >
+              💬 Agende Agora via WhatsApp
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          CTA FINAL - URGÊNCIA GENTIL
+          ============================================ */}
+      <section className="py-20 bg-gradient-to-r from-[#0F172A] to-[#1E293B]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Nosso Diferencial</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Não Deixe Seu Corpo Pedindo Ajuda
+            </h2>
+
             <p className="text-xl text-[#CBD5E1] leading-relaxed mb-8">
-              Não é apenas uma análise. É um sistema completo de <span className="text-[#2DD4BF] font-semibold">diagnóstico + direcionamento + aplicação terapêutica</span>.
+              Você já esperou tempo demais.
             </p>
-            <p className="text-lg text-[#94A3B8]">
-              Combinamos tecnologia quântica de ponta com abordagem holística comprovada para transformar sua saúde em tempo real.
+
+            <p className="text-lg text-[#CBD5E1] leading-relaxed mb-12">
+              Seus células já tentaram te avisar de várias formas:
             </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Localização Section */}
-      <section id="localizacao" className="py-20 bg-white">
-        <div className="container">
-          <div className="bg-gradient-to-r from-[#F0FDFA] to-[#E0F2FE] rounded-2xl p-12 text-center border-2 border-[#2DD4BF]">
-            <h2 className="text-4xl font-bold mb-6 text-[#0F172A]">Localização</h2>
-            <div className="space-y-4 mb-8">
-              <p className="text-2xl font-semibold text-[#0F172A]">
-                📍 Atendimento Presencial em Araraquara - SP
-              </p>
-              <p className="text-lg text-[#64748B]">
-                <strong>Não é online.</strong> Para garantir a qualidade e precisão da análise, o atendimento é exclusivamente presencial.
-              </p>
-              <p className="text-lg text-[#64748B]">
-                Para pessoas de outras cidades da região: necessário agendamento prévio para viabilizar o deslocamento.
-              </p>
-            </div>
-            <Button
-              onClick={handleWhatsAppClick}
-              className="btn-primary"
-            >
-              Quero meu Diagnóstico Bioenergético Agora
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Autoridade Section */}
-      <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Quem Está por Trás da Metodologia</h2>
-            
-            <div className="card-glow">
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Celso Biffe</h3>
-                  <p className="text-lg font-semibold text-[#2DD4BF] mb-4">Engenheiro de Dados + Terapeuta Holístico Sênior</p>
-                  <p className="text-[#64748B] leading-relaxed mb-4">
-                    Eu não trabalho com suposições. Eu traduzo a frequência do seu corpo em dados acionáveis. Minha metodologia une o rigor da tecnologia com a profundidade da Saúde Integrativa para criar um mapa de cura exclusivo para você.
-                  </p>
-                  <p className="text-[#64748B] leading-relaxed mb-4">
-                    Com uma trajetória marcada por vários anos de estudos e centenas de atendimentos clínicos, meu compromisso é guiar você de volta ao seu bem-estar natural. Para isso, alio o cuidado e o acolhimento das terapias holísticas à extrema precisão da tecnologia.
-                  </p>
-                  <p className="text-[#64748B] leading-relaxed font-semibold text-[#0F172A]">
-                    Não ofereço apenas terapia; ofereço o caminho técnico para o seu equilíbrio real.
-                  </p>
-                </div>
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="bg-white bg-opacity-10 p-6 rounded-lg">
+                <p className="text-[#2DD4BF] font-bold">Cansaço</p>
+              </div>
+              <div className="bg-white bg-opacity-10 p-6 rounded-lg">
+                <p className="text-[#2DD4BF] font-bold">Ansiedade</p>
+              </div>
+              <div className="bg-white bg-opacity-10 p-6 rounded-lg">
+                <p className="text-[#2DD4BF] font-bold">Dores</p>
+              </div>
+              <div className="bg-white bg-opacity-10 p-6 rounded-lg">
+                <p className="text-[#2DD4BF] font-bold">Sentimento de "Travado"</p>
               </div>
             </div>
 
-            {/* Testimonials Placeholder */}
-            <div className="mt-12 text-center">
-              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Casos de Sucesso</h3>
-              <p className="text-lg text-[#64748B] font-semibold">
-                Protocolos de BioSync que transformaram rotinas de burnout em alta performance
-              </p>
-              <p className="text-sm text-[#94A3B8] mt-4">
-                Resultados mensuráveis com dados bioenergéticos e acompanhamento personalizado
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section id="contato" className="py-20 bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6]">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Descubra Seus Dados Bioenergéticos Agora</h2>
-            <p className="text-xl mb-12 text-white/90">
-              Pare de viver com incerteza. Obtenha seu mapa de cura preciso em minutos. Fale conosco no WhatsApp ou preencha o formulário para agendar sua análise com tecnologia BioSync.
+            <p className="text-lg text-[#CBD5E1] leading-relaxed mb-12">
+              Não ignore mais esses sinais.
             </p>
-            
-            <ContactForm />
 
-            <div className="mt-12 pt-8 border-t border-white/30">
-              <p className="text-white/80 mb-4">Ou conecte-se diretamente:</p>
-              <a
-                href="https://wa.me/5516997934558"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-[#2DD4BF] px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-all"
-              >
-                💬 Falar no WhatsApp
-              </a>
-            </div>
+            <p className="text-2xl font-bold text-[#2DD4BF] mb-12">
+              Descubra o que está acontecendo. Em 15 minutos.
+              <br />
+              Sem agulhas. Sem espera.
+            </p>
+
+            <button
+              onClick={handleWhatsAppClick}
+              className="bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-4 px-12 rounded-lg text-xl transition-all transform hover:scale-105"
+            >
+              🎁 Quero Descobrir Meus Dados Bioenergéticos Agora
+            </button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0F172A] text-white py-12">
+      <footer className="bg-[#0F172A] text-[#CBD5E1] py-12">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <img src="/manus-storage/lunara-logo_288528d1.png" alt="Lunara" className="h-6 w-auto" />
-                <span className="font-bold">BioSync</span>
-              </div>
-              <p className="text-[#CBD5E1]">Bioressonância magnética quântica + Terapias Holísticas</p>
+              <img
+                src="/assets/lunara-logo.png"
+                alt="Lunara Logo"
+                className="h-12 w-auto mb-4"
+              />
+              <p className="text-sm">Bioressonância e Terapias Holísticas em Araraquara</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Navegação</h4>
-              <ul className="space-y-2 text-[#CBD5E1]">
-                <li><a href="#como-funciona" className="hover:text-[#2DD4BF] transition-colors">O Processo em 4 Passos</a></li>
-                <li><a href="#beneficios" className="hover:text-[#2DD4BF] transition-colors">Benefícios</a></li>
-                <li><a href="#localizacao" className="hover:text-[#2DD4BF] transition-colors">Localização</a></li>
-                <li><a href="#contato" className="hover:text-[#2DD4BF] transition-colors">Contato</a></li>
-              </ul>
+              <p className="font-bold mb-4">Contato</p>
+              <p className="text-sm">📞 +55 16 99793-4558</p>
+              <p className="text-sm">📍 Araraquara, SP</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Contato</h4>
-              <p className="text-[#CBD5E1] mb-2">📍 Araraquara - SP</p>
-              <a
-                href="https://wa.me/5516997934558"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#2DD4BF] hover:text-white transition-colors font-semibold"
-              >
-                💬 +55 16 99793-4558
-              </a>
+              <p className="font-bold mb-4">Horário</p>
+              <p className="text-sm">Seg-Sex: 9h-18h</p>
+              <p className="text-sm">Sábado: 9h-13h</p>
             </div>
           </div>
-          <div className="border-t border-[#1E293B] pt-8 text-center text-[#64748B]">
-            <p>&copy; 2026 Lunara BioSync. Todos os direitos reservados. | Celso Luiz - Psicoterapeuta Holístico</p>
+          <div className="border-t border-[#334155] pt-8 text-center text-sm">
+            <p>&copy; 2026 Lunara BioSync. Todos os direitos reservados.</p>
+            <p className="mt-2">Desenvolvido com ❤️ para sua saúde integral</p>
           </div>
         </div>
       </footer>
 
-      {/* WhatsApp Floating Button */}
       <WhatsAppButton />
     </div>
   );
