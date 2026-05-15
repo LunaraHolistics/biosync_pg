@@ -19,27 +19,34 @@ export default function LeadCapturePopup({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
-  // Mostrar pop-up após 10 segundos
+  // Mostrar pop-up após 15 segundos (menos intrusivo) e apenas uma vez por sessão
   useEffect(() => {
+    const popupShown = sessionStorage.getItem('leadPopupShown');
+    if (popupShown) return;
+
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 10000);
+      sessionStorage.setItem('leadPopupShown', 'true');
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, []);
 
   // Detectar tentativa de sair da página (mover mouse para fechar aba)
+  // Apenas mostrar se ainda não foi exibido
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0) {
-        setIsVisible(true);
+      if (e.clientY <= 0 && !isVisible) {
+        const popupShown = sessionStorage.getItem('leadPopupShown');
+        if (!popupShown) {
+          setIsVisible(true);
+          sessionStorage.setItem('leadPopupShown', 'true');
+        }
       }
     };
 
-    if (!isVisible) {
-      document.addEventListener('mouseleave', handleMouseLeave);
-      return () => document.removeEventListener('mouseleave', handleMouseLeave);
-    }
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [isVisible]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -252,12 +259,15 @@ export default function LeadCapturePopup({
  *        whatsappNumber="5516999999999"
  *      />
  * 
- * 4. ALTERNATIVA: Se preferir usar WhatsApp direto:
- *    - Substitua a função handleSubmit para usar WhatsApp API
- *    - Exemplo: window.open(`https://wa.me/${whatsappNumber}?text=Olá, gostaria do Mapa dos 7 Sinais`)
+ * 4. OTIMIZAÇÕES DE PERSISTÊNCIA:
+ *    - Pop-up aparece após 15 segundos (não 10) para ser menos intrusivo
+ *    - Aparece apenas UMA VEZ por sessão (usa sessionStorage)
+ *    - Se o usuário fechar, não reaparece até recarregar a página
+ *    - Gatilho de "tentativa de sair" ainda funciona se não foi exibido
  * 
  * 5. TESTE:
  *    - Abra o site em incógnito
- *    - Aguarde 10 segundos ou tente sair da página
- *    - Preencha o formulário e teste o envio
+ *    - Aguarde 15 segundos para ver o pop-up
+ *    - Feche e recarregue a página - não deve aparecer novamente
+ *    - Abra em outra aba incógnito - deve aparecer (nova sessão)
  */

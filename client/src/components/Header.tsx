@@ -18,9 +18,9 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img 
-            src="/manus-storage/lunara-logo_288528d1.png" 
-            alt="Lunara" 
-            className="h-8 w-auto"
+            src="/favicon.png" 
+            alt="BioSync" 
+            className="h-8 w-8"
           />
           <span className="text-xl font-bold text-[#0F172A]">BioSync</span>
         </div>

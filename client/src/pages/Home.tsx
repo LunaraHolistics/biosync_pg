@@ -117,7 +117,7 @@ export default function Home() {
             <div className="relative hidden md:block">
               <div className="relative z-10">
                 <img
-                  src="/assets/device-bioresonancia.jpg"
+                  src="/manus-storage/device-bioresonancia_bb7d80f1.jpg"
                   alt="Aparelho de Bioressonância"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
