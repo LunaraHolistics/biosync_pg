@@ -56,7 +56,7 @@ export default function Home() {
             <div className="space-y-6">
               <div className="inline-block">
                 <img
-                  src="/client/public/Logonew1_4fad7e00.png"
+                  src="/Logonew1_4fad7e00.png"
                   alt="Lunara Logo"
                   className="h-16 w-auto mb-4"
                 />
@@ -117,7 +117,7 @@ export default function Home() {
             <div className="relative hidden md:block">
               <div className="relative z-10">
                 <img
-                  src="/client/public/device-bioresonancia_bb7d80f1.jpg"
+                  src="/device-bioresonancia_bb7d80f1.jpg"
                   alt="Aparelho de Bioressonância"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
