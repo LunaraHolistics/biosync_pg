@@ -29,7 +29,6 @@ function App() {
         defaultTheme="light"
       >
         <TooltipProvider>
-          <Toaster />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
