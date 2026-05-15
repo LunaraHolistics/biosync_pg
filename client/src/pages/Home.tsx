@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { ChevronDown, Zap, Moon, Heart, Dumbbell, Users, TrendingUp, Award, CheckCircle2, AlertCircle, Smile } from 'lucide-react';
 import Header from '@/components/Header';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import ContactForm from '@/components/ContactForm';
-import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 /**
