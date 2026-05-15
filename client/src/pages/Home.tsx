@@ -56,7 +56,7 @@ export default function Home() {
             <div className="space-y-6">
               <div className="inline-block">
                 <img
-                  src="/assets/lunara-logo.png"
+                  src="/manus-storage/Logonew1_4fad7e00.png"
                   alt="Lunara Logo"
                   className="h-16 w-auto mb-4"
                 />
@@ -681,7 +681,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <img
-                src="/assets/lunara-logo.png"
+                src="/manus-storage/Logonew1_4fad7e00.png"
                 alt="Lunara Logo"
                 className="h-12 w-auto mb-4"
               />
