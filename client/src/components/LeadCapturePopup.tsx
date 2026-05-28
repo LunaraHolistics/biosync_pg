@@ -19,18 +19,8 @@ export default function LeadCapturePopup({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
-  // Mostrar pop-up após 15 segundos (menos intrusivo) e apenas uma vez por sessão
-  useEffect(() => {
-    const popupShown = sessionStorage.getItem('leadPopupShown');
-    if (popupShown) return;
-
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-      sessionStorage.setItem('leadPopupShown', 'true');
-    }, 15000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  // Pop-up aparece APENAS quando o usuário tenta sair da página
+  // Não aparece automaticamente por tempo
 
   // Detectar tentativa de sair da página (mover mouse para fechar aba)
   // Apenas mostrar se ainda não foi exibido

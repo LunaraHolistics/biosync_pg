@@ -40,7 +40,7 @@ export default function Home() {
       {/* ============================================
           HERO SECTION - HEADLINE IMPACTANTE
           ============================================ */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 md:pt-32 pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663309535032/TFgGy5cq4MNYch3LzbTaZo/hero-background-RQRdNEVVwKpLjLLkJbAiDE.webp"
@@ -51,12 +51,12 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-6">
               <div className="inline-block">
                 <img
-                  src="/Logonew1_4fad7e00.png"
+                  src="/manus-storage/Logonew1_4fad7e00.png"
                   alt="Lunara Logo"
                   className="h-16 w-auto mb-4"
                 />
@@ -64,34 +64,34 @@ export default function Home() {
 
               {/* HEADLINE - Impactante */}
               <div className="space-y-3">
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#0F172A]">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-[#0F172A]">
                   Cansado de sentir que algo está errado, mas os exames não mostram nada?
                 </h1>
-                <p className="text-3xl md:text-4xl font-bold text-[#2DD4BF]">
+                <p className="text-xl sm:text-2xl md:text-4xl font-bold text-[#2DD4BF]">
                   Seu corpo está tentando te falar. O BioSync escuta.
                 </p>
               </div>
 
               {/* SUBTÍTULO - Benefício Claro */}
-              <p className="text-xl text-[#64748B] leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-[#64748B] leading-relaxed">
                 Não é só um exame. É um <strong>Check-up Bioenergético Completo</strong> que identifica bloqueios emocionais e energéticos que estão sabotando sua saúde, antes mesmo de virarem doença.
               </p>
 
-              <p className="text-lg text-[#2DD4BF] font-semibold">
+              <p className="text-base sm:text-lg md:text-lg text-[#2DD4BF] font-semibold">
                 Descubra o que suas células estão tentando te dizer.
               </p>
 
               {/* CTAs - Urgência */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <div className="flex flex-col gap-3 sm:gap-4 pt-6">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105"
+                  className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all transform hover:scale-105 w-full"
                 >
                   🎁 Agende com 20% de Desconto (5 vagas)
                 </button>
                 <button
                   onClick={handleWhatsAppClick}
-                  className="btn-secondary bg-[#10B981] hover:bg-[#059669] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all"
+                  className="btn-secondary bg-[#10B981] hover:bg-[#059669] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all w-full"
                 >
                   💬 Fale Comigo no WhatsApp Agora
                 </button>
@@ -117,7 +117,7 @@ export default function Home() {
             <div className="relative hidden md:block">
               <div className="relative z-10">
                 <img
-                  src="/device-bioresonancia_bb7d80f1.jpg"
+                  src="/manus-storage/device-bioresonancia_bb7d80f1.jpg"
                   alt="Aparelho de Bioressonância"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
