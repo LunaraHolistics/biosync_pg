@@ -34,14 +34,11 @@ async function startServer() {
   });
 
   // Serve static files from the correct dist/public path
-  // In production (Vercel), files are in dist/public
-  // In development, files are in dist/public
   const staticPath = path.resolve(__dirname, "..", "dist", "public");
 
   app.use(express.static(staticPath));
 
   // Handle client-side routing - serve index.html for all routes
-  // This ensures React Router works correctly
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
