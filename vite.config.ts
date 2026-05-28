@@ -214,16 +214,9 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  envDir: path.resolve(import.meta.dirname),
-   build: {
-    // 🎯 INPUT EXPLÍCITO: aponta direto para o index.html
-    rollupOptions: {
-      input: {
-        main: path.resolve(import.meta.dirname, "client", "index.html"),
-      },
-    },
-    // 🎯 OUTPUT SIMPLES: relativo à raiz do projeto
-    outDir: "dist/public",
+   root: "client",
+  build: {
+    outDir: "../dist/public",
     emptyOutDir: true,
   },
   server: {
