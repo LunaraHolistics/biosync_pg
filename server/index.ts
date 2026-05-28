@@ -37,16 +37,13 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  // Client-side routing
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
 
   const port = process.env.PORT || 3000;
-
   server.listen(port, () => {
     console.log(`Server running on port ${port}`);
-    console.log(`Serving static files from: ${staticPath}`);
   });
 }
 
