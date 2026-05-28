@@ -207,18 +207,30 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 
 export default defineConfig({
   plugins,
+  
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": path.resolve(PROJECT_ROOT, "client", "src"),
+      "@shared": path.resolve(PROJECT_ROOT, "shared"),
+      "@assets": path.resolve(PROJECT_ROOT, "attached_assets"),
     },
   },
-   root: "client",
+  
+  envDir: PROJECT_ROOT,
+  
+  // 🎯 CORREÇÃO 1: root como path.resolve para consistência absoluta
+  root: path.resolve(PROJECT_ROOT, "client"),
+  
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist", "public"),
+    // 🎯 CORREÇÃO 2: outDir absoluto e explícito
+    // Gera: /vercel/path0/dist/public/ (sem ambiguidade de "../")
+    outDir: path.resolve(PROJECT_ROOT, "dist", "public"),
     emptyOutDir: true,
+    
+    // 🎯 CORREÇÃO 3: assetsDir relativo para evitar subpastas indesejadas
+    assetsDir: "assets",
   },
+  
   server: {
     port: 3000,
     strictPort: false,
