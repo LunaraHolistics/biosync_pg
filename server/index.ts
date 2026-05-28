@@ -33,7 +33,7 @@ async function startServer() {
   // 🎯 CAMINHO CORRETO PARA ARQUIVOS ESTÁTICOS
   // No Vercel: os arquivos estão em dist/public, mas o cwd é a raiz do projeto
   // Local: os arquivos estão em dist/public relativo à raiz
-  const staticPath = path.resolve(process.cwd(), 'dist', 'public');
+  const staticPath = path.join(__dirname, 'public');
 
   app.use(express.static(staticPath));
 
