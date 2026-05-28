@@ -51,29 +51,29 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-6">
+          <div className="max-w-5xl mx-auto">
+            {/* Content Centralizado */}
+            <div className="text-center space-y-6 mb-12">
               <div className="inline-block">
                 <img
-                  src="/manus-storage/Logonew1_4fad7e00.png"
+                  src="/Logo new1.png"
                   alt="Lunara Logo"
-                  className="h-16 w-auto mb-4"
+                  className="h-16 w-auto"
                 />
               </div>
 
               {/* HEADLINE - Impactante */}
               <div className="space-y-3">
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-[#0F172A]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0F172A]">
                   Cansado de sentir que algo está errado, mas os exames não mostram nada?
                 </h1>
-                <p className="text-xl sm:text-2xl md:text-4xl font-bold text-[#2DD4BF]">
+                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#2DD4BF]">
                   Seu corpo está tentando te falar. O BioSync escuta.
                 </p>
               </div>
 
               {/* SUBTÍTULO - Benefício Claro */}
-              <p className="text-base sm:text-lg md:text-xl text-[#64748B] leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-[#64748B] leading-relaxed max-w-3xl mx-auto">
                 Não é só um exame. É um <strong>Check-up Bioenergético Completo</strong> que identifica bloqueios emocionais e energéticos que estão sabotando sua saúde, antes mesmo de virarem doença.
               </p>
 
@@ -82,7 +82,7 @@ export default function Home() {
               </p>
 
               {/* CTAs - Urgência */}
-              <div className="flex flex-col gap-3 sm:gap-4 pt-6">
+              <div className="flex flex-col gap-3 sm:gap-4 pt-6 max-w-md mx-auto">
                 <button
                   onClick={handleWhatsAppClick}
                   className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all transform hover:scale-105 w-full"
@@ -102,22 +102,22 @@ export default function Home() {
               </p>
 
               {/* Trust Badge */}
-              <div className="flex items-center gap-3 pt-8 border-t border-[#E2E8F0]">
+              <div className="flex items-center justify-center gap-3 pt-8 border-t border-[#E2E8F0] max-w-md mx-auto">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] flex items-center justify-center text-white">
                   <Award size={24} />
                 </div>
-                <div>
+                <div className="text-left">
                   <p className="font-semibold text-[#0F172A]">Engenheiro de Dados + Terapeuta Holístico</p>
                   <p className="text-sm text-[#64748B]">Celso Biffe - Metodologia Científica Comprovada</p>
                 </div>
               </div>
             </div>
 
-            {/* Right - Device Image */}
-            <div className="relative hidden md:block">
+            {/* Device Image - Centralizado */}
+            <div className="relative max-w-3xl mx-auto">
               <div className="relative z-10">
                 <img
-                  src="/manus-storage/device-bioresonancia_bb7d80f1.jpg"
+                  src="/device-bioresonancia_bb7d80f1.jpg"
                   alt="Aparelho de Bioressonância"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
@@ -681,7 +681,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <img
-                src="/manus-storage/Logonew1_4fad7e00.png"
+                src="/Logo new1.png"
                 alt="Lunara Logo"
                 className="h-12 w-auto mb-4"
               />
@@ -703,7 +703,7 @@ export default function Home() {
             <p className="mt-2">Desenvolvido com ❤️ para sua saúde integral</p>
           </div>
         </div>
-       </footer>
+      </footer>
       <WhatsAppButton />
       <LeadCapturePopup 
         pdfLink="https://seu-link-do-pdf-aqui.com/mapa-dos-7-sinais.pdf"
