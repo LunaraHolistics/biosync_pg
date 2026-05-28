@@ -1,17 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
-  "outputDirectory": "dist",
+  "installCommand": "pnpm install",
+  "buildCommand": "cd client && pnpm build",
+  "outputDirectory": "client/dist",
   "cleanUrls": true,
-  "functions": {
-    "dist/index.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/dist/index.js"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
