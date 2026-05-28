@@ -10,12 +10,10 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
-  // Trust proxy for HTTPS
   app.set('trust proxy', 1);
 
   // Security headers
   app.use((req, res, next) => {
-    // HTTPS redirect
     if (process.env.NODE_ENV === 'production' && req.header('x-forwarded-proto') !== 'https') {
       res.redirect(`https://${req.header('host')}${req.url}`);
     } else {
@@ -23,7 +21,6 @@ async function startServer() {
     }
   });
 
-  // Add security headers
   app.use((req, res, next) => {
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
     res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -33,19 +30,14 @@ async function startServer() {
     next();
   });
 
-  // Determine static path based on environment
-  // In Vercel: dist/public is the output directory, so serve from ./public
-  // Locally: serve from dist/public relative to project root
-  const isVercel = !!process.env.VERCEL;
-  const staticPath = isVercel
-    ? path.join(process.cwd(), 'public')
-    : path.resolve(__dirname, '..', 'dist', 'public');
-
-  console.log(`[${isVercel ? 'VERCEL' : 'LOCAL'}] Serving static files from: ${staticPath}`);
+  // 🎯 CAMINHO CORRETO PARA ARQUIVOS ESTÁTICOS
+  // No Vercel: os arquivos estão em dist/public, mas o cwd é a raiz do projeto
+  // Local: os arquivos estão em dist/public relativo à raiz
+  const staticPath = path.resolve(process.cwd(), 'dist', 'public');
 
   app.use(express.static(staticPath));
 
-  // Handle client-side routing - serve index.html for all routes
+  // Client-side routing
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
@@ -54,6 +46,7 @@ async function startServer() {
 
   server.listen(port, () => {
     console.log(`Server running on port ${port}`);
+    console.log(`Serving static files from: ${staticPath}`);
   });
 }
 
