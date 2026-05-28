@@ -1,5 +1,6 @@
 {
   "buildCommand": "pnpm build",
-  "outputDirectory": "dist/public",
-  "framework": "vite"
+  "outputDirectory": "./dist/public",
+  "framework": "vite",
+  "devCommand": "pnpm dev"
 }
