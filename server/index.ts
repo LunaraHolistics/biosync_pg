@@ -33,10 +33,6 @@ async function startServer() {
     next();
   });
 
-<<<<<<< Updated upstream
-  // Serve static files from the correct dist/public path
-  const staticPath = path.resolve(__dirname, "..", "dist", "public");
-=======
   // Determine static path based on environment
   // In Vercel: dist/public is the output directory, so serve from ./public
   // Locally: serve from dist/public relative to project root
@@ -46,7 +42,6 @@ async function startServer() {
     : path.resolve(__dirname, '..', 'dist', 'public');
 
   console.log(`[${isVercel ? 'VERCEL' : 'LOCAL'}] Serving static files from: ${staticPath}`);
->>>>>>> Stashed changes
 
   app.use(express.static(staticPath));
 
