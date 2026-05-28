@@ -215,8 +215,15 @@ export default defineConfig({
     },
   },
   envDir: path.resolve(import.meta.dirname),
-  build: {
-    outDir: "../dist/public",
+   build: {
+    // 🎯 INPUT EXPLÍCITO: aponta direto para o index.html
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, "client", "index.html"),
+      },
+    },
+    // 🎯 OUTPUT SIMPLES: relativo à raiz do projeto
+    outDir: "dist/public",
     emptyOutDir: true,
   },
   server: {
