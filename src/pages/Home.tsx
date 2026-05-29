@@ -17,7 +17,7 @@ export default function Home() {
   const handleAgendamento = () => {
     const today = new Date();
     const unlockDate = new Date('2026-05-01');
-    
+
     if (today < unlockDate) {
       toast.error('Agendamento disponível a partir de 01/05/2026');
       return;
@@ -30,8 +30,8 @@ export default function Home() {
       <Header />
 
       {/* ============================================
-          HERO SECTION - LAYOUT PRINT 1
-          ============================================ */}
+    HERO SECTION - LAYOUT PRINT 1
+    ============================================ */}
       <section className="relative pt-20 md:pt-28 pb-16 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -42,12 +42,12 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
         </div>
 
-        <div className="container relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Grid: Texto à esquerda, Imagem à direita */}
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            
+
             {/* LEFT - Conteúdo de Texto */}
-            <div className="space-y-6">
+            <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
               {/* Logo Lunara */}
               <div>
                 <img
@@ -77,7 +77,7 @@ export default function Home() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col gap-3 sm:gap-4 pt-4">
+              <div className="flex flex-col gap-3 sm:gap-4 pt-4 max-w-md mx-auto lg:mx-0">
                 <button
                   onClick={handleWhatsAppClick}
                   className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all transform hover:scale-105"
@@ -92,12 +92,12 @@ export default function Home() {
                 </button>
               </div>
 
-              <p className="text-sm text-[#64748B] font-semibold">
+              <p className="text-sm text-[#64748B] font-semibold text-center lg:text-left">
                 ⏱️ 15 minutos para clareza total. Sem agulhas. Sem espera.
               </p>
 
               {/* Trust Badge */}
-              <div className="flex items-center gap-3 pt-6 border-t border-[#E2E8F0]">
+              <div className="flex items-center gap-3 pt-6 border-t border-[#E2E8F0] max-w-md mx-auto lg:mx-0">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] flex items-center justify-center text-white flex-shrink-0">
                   <Award size={24} />
                 </div>
@@ -698,7 +698,7 @@ export default function Home() {
         </div>
       </footer>
       <WhatsAppButton />
-      <LeadCapturePopup 
+      <LeadCapturePopup
         pdfLink="https://seu-link-do-pdf-aqui.com/mapa-dos-7-sinais.pdf"
         emailDestino="seu-email@lunara.com.br"
         whatsappNumber="5516999999999"
