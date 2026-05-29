@@ -1,17 +1,9 @@
 import { useState } from 'react';
-import { ChevronDown, Zap, Moon, Heart, Dumbbell, Users, TrendingUp, Award, CheckCircle2, AlertCircle, Smile } from 'lucide-react';
+import { Award, CheckCircle2, AlertCircle, Smile } from 'lucide-react';
 import Header from '@/components/Header';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import LeadCapturePopup from '@/components/LeadCapturePopup';
 import { toast } from 'sonner';
-
-/**
- * DESIGN PHILOSOPHY: Futurismo Orgânico + Alta Conversão
- * - Modelo: BAB (Before-After-Bridge)
- * - Paleta: Verde-água (#2DD4BF) + Azul-marinho (#0F172A) + Vermelho (#EF4444)
- * - Foco: Empatia + Urgência + Clareza
- * - Tipografia: Poppins (títulos) + Inter (corpo)
- */
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'individual' | 'business'>('individual');
@@ -38,9 +30,9 @@ export default function Home() {
       <Header />
 
       {/* ============================================
-          HERO SECTION - HEADLINE IMPACTANTE
+          HERO SECTION - LAYOUT PRINT 1
           ============================================ */}
-      <section className="relative pt-20 md:pt-32 pb-16 md:pb-20 overflow-hidden">
+      <section className="relative pt-20 md:pt-28 pb-16 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663309535032/TFgGy5cq4MNYch3LzbTaZo/hero-background-RQRdNEVVwKpLjLLkJbAiDE.webp"
@@ -51,18 +43,21 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10">
-          <div className="max-w-5xl mx-auto">
-            {/* Content Centralizado */}
-            <div className="text-center space-y-6 mb-12">
-              <div className="inline-block">
+          {/* Grid: Texto à esquerda, Imagem à direita */}
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            
+            {/* LEFT - Conteúdo de Texto */}
+            <div className="space-y-6">
+              {/* Logo Lunara */}
+              <div>
                 <img
                   src="/Logo new1.png"
                   alt="Lunara Logo"
-                  className="h-16 w-auto"
+                  className="h-12 md:h-16 w-auto"
                 />
               </div>
 
-              {/* HEADLINE - Impactante */}
+              {/* HEADLINE */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#0F172A]">
                   Cansado de sentir que algo está errado, mas os exames não mostram nada?
@@ -72,26 +67,26 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* SUBTÍTULO - Benefício Claro */}
-              <p className="text-base sm:text-lg md:text-xl text-[#64748B] leading-relaxed max-w-3xl mx-auto">
+              {/* SUBTÍTULO */}
+              <p className="text-base sm:text-lg md:text-xl text-[#64748B] leading-relaxed">
                 Não é só um exame. É um <strong>Check-up Bioenergético Completo</strong> que identifica bloqueios emocionais e energéticos que estão sabotando sua saúde, antes mesmo de virarem doença.
               </p>
 
-              <p className="text-base sm:text-lg md:text-lg text-[#2DD4BF] font-semibold">
+              <p className="text-base sm:text-lg text-[#2DD4BF] font-semibold">
                 Descubra o que suas células estão tentando te dizer.
               </p>
 
-              {/* CTAs - Urgência */}
-              <div className="flex flex-col gap-3 sm:gap-4 pt-6 max-w-md mx-auto">
+              {/* CTAs */}
+              <div className="flex flex-col gap-3 sm:gap-4 pt-4">
                 <button
                   onClick={handleWhatsAppClick}
-                  className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all transform hover:scale-105 w-full"
+                  className="btn-primary bg-[#EF4444] hover:bg-[#DC2626] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all transform hover:scale-105"
                 >
                   🎁 Agende com 20% de Desconto (5 vagas)
                 </button>
                 <button
                   onClick={handleWhatsAppClick}
-                  className="btn-secondary bg-[#10B981] hover:bg-[#059669] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all w-full"
+                  className="btn-secondary bg-[#10B981] hover:bg-[#059669] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-sm sm:text-lg transition-all"
                 >
                   💬 Fale Comigo no WhatsApp Agora
                 </button>
@@ -102,23 +97,23 @@ export default function Home() {
               </p>
 
               {/* Trust Badge */}
-              <div className="flex items-center justify-center gap-3 pt-8 border-t border-[#E2E8F0] max-w-md mx-auto">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] flex items-center justify-center text-white">
+              <div className="flex items-center gap-3 pt-6 border-t border-[#E2E8F0]">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2DD4BF] to-[#14B8A6] flex items-center justify-center text-white flex-shrink-0">
                   <Award size={24} />
                 </div>
-                <div className="text-left">
+                <div>
                   <p className="font-semibold text-[#0F172A]">Engenheiro de Dados + Terapeuta Holístico</p>
                   <p className="text-sm text-[#64748B]">Celso Biffe - Metodologia Científica Comprovada</p>
                 </div>
               </div>
             </div>
 
-            {/* Device Image - Centralizado */}
-            <div className="relative max-w-3xl mx-auto">
+            {/* RIGHT - Imagem do Aparelho */}
+            <div className="relative">
               <div className="relative z-10">
                 <img
                   src="/device-bioresonancia_bb7d80f1.jpg"
-                  alt="Aparelho de Bioressonância"
+                  alt="Aparelho de Bioressonância BioSync"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
               </div>
@@ -128,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* ============================================
-          SEÇÃO "A DOR" (BEFORE) - Conectar com a Realidade
+          SEÇÃO "A DOR" (BEFORE)
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
         <div className="container">
@@ -187,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* ============================================
-          SEÇÃO "A TRANSFORMAÇÃO" (AFTER) - Pintar o Futuro
+          SEÇÃO "A TRANSFORMAÇÃO" (AFTER)
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
         <div className="container">
@@ -311,8 +306,6 @@ export default function Home() {
                 Não usamos termos complicados. Te entregamos um MAPA VISUAL CLARO que você entende na hora.
               </p>
             </div>
-
-            {/* Carrossel de Imagens */}
           </div>
         </div>
       </section>
