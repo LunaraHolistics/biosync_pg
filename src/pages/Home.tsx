@@ -17,7 +17,7 @@ export default function Home() {
   const handleAgendamento = () => {
     const today = new Date();
     const unlockDate = new Date('2026-05-01');
-
+    
     if (today < unlockDate) {
       toast.error('Agendamento disponível a partir de 01/05/2026');
       return;
@@ -30,8 +30,8 @@ export default function Home() {
       <Header />
 
       {/* ============================================
-    HERO SECTION - LAYOUT PRINT 1
-    ============================================ */}
+          HERO SECTION - LAYOUT PRINT 1
+          ============================================ */}
       <section className="relative pt-20 md:pt-28 pb-16 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -45,7 +45,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Grid: Texto à esquerda, Imagem à direita */}
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-
+            
             {/* LEFT - Conteúdo de Texto */}
             <div className="space-y-6 max-w-2xl mx-auto lg:mx-0">
               {/* Logo Lunara */}
@@ -103,7 +103,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-semibold text-[#0F172A]">Engenheiro de Dados + Terapeuta Holístico</p>
-                  <p className="text-sm text-[#64748B]">Celso Biffe - Metodologia Científica Comprovada</p>
+                  <p className="text-sm text-[#64748B]">Celso Luiz - Metodologia Científica Comprovada</p>
                 </div>
               </div>
             </div>
@@ -126,8 +126,8 @@ export default function Home() {
           SEÇÃO "A DOR" (BEFORE)
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#0F172A] text-center">
               Você já se sentiu assim?
             </h2>
@@ -185,8 +185,8 @@ export default function Home() {
           SEÇÃO "A TRANSFORMAÇÃO" (AFTER)
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#0F172A] text-center">
               Agora imagine o oposto...
             </h2>
@@ -241,15 +241,15 @@ export default function Home() {
           SEÇÃO "A PONTE" (BRIDGE) - Como o BioSync Resolve
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#0F172A]">
-            Apresento o BioSync
-          </h2>
-          <p className="text-xl text-center text-[#2DD4BF] font-semibold mb-12">
-            Sua Ponte para a Saúde Integral
-          </p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#0F172A]">
+              Apresento o BioSync
+            </h2>
+            <p className="text-xl text-center text-[#2DD4BF] font-semibold mb-12">
+              Sua Ponte para a Saúde Integral
+            </p>
 
-          <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-[#E2E8F0] mb-12">
               <p className="text-lg text-[#64748B] leading-relaxed mb-8">
                 O BioSync não é um exame comum. É uma análise de ressonância magnética quântica (QRMA) que funciona como um <strong>"scanner de saúde celular"</strong>.
@@ -314,61 +314,63 @@ export default function Home() {
           SEÇÃO "O QUE É BIORESSONÂNCIA"
           ============================================ */}
       <section className="py-20 bg-white">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
-            Conheça os Protocolos de Análise do BioSync
-          </h2>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+              Conheça os Protocolos de Análise do BioSync
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="card-glow">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O que é QRMA?</h3>
-              <p className="text-[#64748B] leading-relaxed mb-4">
-                QRMA significa Análise de Ressonância Magnética Quântica. É uma tecnologia Hi-tech que analisa mais de 30 áreas de saúde sem ser invasiva.
-              </p>
-              <p className="text-[#64748B] leading-relaxed">
-                Detecta ressonância entre frequências eletromagnéticas emitidas pelo corpo e as compara com padrões de um organismo saudável.
-              </p>
-            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="card-glow">
+                <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">O que é QRMA?</h3>
+                <p className="text-[#64748B] leading-relaxed mb-4">
+                  QRMA significa Análise de Ressonância Magnética Quântica. É uma tecnologia Hi-tech que analisa mais de 30 áreas de saúde sem ser invasiva.
+                </p>
+                <p className="text-[#64748B] leading-relaxed">
+                  Detecta ressonância entre frequências eletromagnéticas emitidas pelo corpo e as compara com padrões de um organismo saudável.
+                </p>
+              </div>
 
-            <div className="card-glow">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Como Funciona</h3>
-              <p className="text-[#64748B] leading-relaxed mb-4">
-                Cada célula emite ondas eletromagnéticas específicas. O QRMA captura essas ondas com precisão e as compara com padrões de saúde ideal.
-              </p>
-              <p className="text-[#64748B] leading-relaxed">
-                Identifica desequilíbrios energéticos e físicos que os exames tradicionais não conseguem ver.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-12 bg-gradient-to-r from-[#F0FDFA] to-[#ECFDF5] p-8 rounded-2xl max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Áreas Analisadas (30+)</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <p className="font-bold text-[#2DD4BF] mb-3">🫀 Órgãos e Sistemas</p>
-                <p className="text-[#64748B]">Coração, cérebro, pulmões, rins, fígado e muito mais</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#2DD4BF] mb-3">💊 Nutrição e Toxinas</p>
-                <p className="text-[#64748B]">Vitaminas, minerais, toxinas e metais pesados</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#2DD4BF] mb-3">✨ Saúde e Beleza</p>
-                <p className="text-[#64748B]">Pele, colágeno, saúde ocular e vitalidade</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#2DD4BF] mb-3">⚡ Condições Específicas</p>
-                <p className="text-[#64748B]">Obesidade, alergias, desequilíbrios hormonais</p>
+              <div className="card-glow">
+                <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Como Funciona</h3>
+                <p className="text-[#64748B] leading-relaxed mb-4">
+                  Cada célula emite ondas eletromagnéticas específicas. O QRMA captura essas ondas com precisão e as compara com padrões de saúde ideal.
+                </p>
+                <p className="text-[#64748B] leading-relaxed">
+                  Identifica desequilíbrios energéticos e físicos que os exames tradicionais não conseguem ver.
+                </p>
               </div>
             </div>
-          </div>
 
-          <div className="mt-12 bg-[#FEF3C7] border-l-4 border-[#F59E0B] p-8 rounded-xl max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-[#92400E]">📋 Preparação para Melhor Resultado</h3>
-            <div className="space-y-4 text-[#92400E]">
-              <p><strong>1️⃣ Dias Anteriores:</strong> Evite álcool ou café 2 dias antes (deixa a leitura mais clara)</p>
-              <p><strong>2️⃣ Noite Anterior:</strong> Durma bem (seu corpo precisa estar descansado)</p>
-              <p><strong>3️⃣ No Dia:</strong> Venha com mente aberta (os resultados podem surpreender)</p>
+            <div className="mt-12 bg-gradient-to-r from-[#F0FDFA] to-[#ECFDF5] p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6 text-[#0F172A]">Áreas Analisadas (30+)</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <p className="font-bold text-[#2DD4BF] mb-3">🫀 Órgãos e Sistemas</p>
+                  <p className="text-[#64748B]">Coração, cérebro, pulmões, rins, fígado e muito mais</p>
+                </div>
+                <div>
+                  <p className="font-bold text-[#2DD4BF] mb-3">💊 Nutrição e Toxinas</p>
+                  <p className="text-[#64748B]">Vitaminas, minerais, toxinas e metais pesados</p>
+                </div>
+                <div>
+                  <p className="font-bold text-[#2DD4BF] mb-3">✨ Saúde e Beleza</p>
+                  <p className="text-[#64748B]">Pele, colágeno, saúde ocular e vitalidade</p>
+                </div>
+                <div>
+                  <p className="font-bold text-[#2DD4BF] mb-3">⚡ Condições Específicas</p>
+                  <p className="text-[#64748B]">Obesidade, alergias, desequilíbrios hormonais</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-[#FEF3C7] border-l-4 border-[#F59E0B] p-8 rounded-xl">
+              <h3 className="text-2xl font-bold mb-4 text-[#92400E]">📋 Preparação para Melhor Resultado</h3>
+              <div className="space-y-4 text-[#92400E]">
+                <p><strong>1️⃣ Dias Anteriores:</strong> Evite álcool ou café 2 dias antes (deixa a leitura mais clara)</p>
+                <p><strong>2️⃣ Noite Anterior:</strong> Durma bem (seu corpo precisa estar descansado)</p>
+                <p><strong>3️⃣ No Dia:</strong> Venha com mente aberta (os resultados podem surpreender)</p>
+              </div>
             </div>
           </div>
         </div>
@@ -378,151 +380,155 @@ export default function Home() {
           SEÇÃO "BENEFÍCIOS ESPECÍFICOS"
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-[#F0FDFA] to-white">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
-            Benefícios Específicos para Cada Tipo de Dor
-          </h2>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+              Benefícios Específicos para Cada Tipo de Dor
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 rounded-xl border-t-4 border-[#2DD4BF] shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Cansaço Crônico</h3>
-              <ul className="space-y-3 text-[#64748B]">
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
-                  <span>Identifica órgãos sobrecarregados que drenam sua energia</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
-                  <span>Mostra deficiências de vitaminas e minerais</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
-                  <span>Revela bloqueios emocionais que causam exaustão</span>
-                </li>
-              </ul>
-            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white p-8 rounded-xl border-t-4 border-[#2DD4BF] shadow-lg">
+                <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Cansaço Crônico</h3>
+                <ul className="space-y-3 text-[#64748B]">
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                    <span>Identifica órgãos sobrecarregados que drenam sua energia</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                    <span>Mostra deficiências de vitaminas e minerais</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                    <span>Revela bloqueios emocionais que causam exaustão</span>
+                  </li>
+                </ul>
+              </div>
 
-            <div className="bg-white p-8 rounded-xl border-t-4 border-[#A855F7] shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Ansiedade/Tristeza</h3>
-              <ul className="space-y-3 text-[#64748B]">
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
-                  <span>Detecta desequilíbrios que causam ansiedade</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
-                  <span>Mostra como a energia está bloqueada no seu corpo</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
-                  <span>Identifica traumas energéticos não resolvidos</span>
-                </li>
-              </ul>
-            </div>
+              <div className="bg-white p-8 rounded-xl border-t-4 border-[#A855F7] shadow-lg">
+                <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Ansiedade/Tristeza</h3>
+                <ul className="space-y-3 text-[#64748B]">
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
+                    <span>Detecta desequilíbrios que causam ansiedade</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
+                    <span>Mostra como a energia está bloqueada no seu corpo</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#A855F7] flex-shrink-0" size={20} />
+                    <span>Identifica traumas energéticos não resolvidos</span>
+                  </li>
+                </ul>
+              </div>
 
-            <div className="bg-white p-8 rounded-xl border-t-4 border-[#F59E0B] shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Dores Crônicas</h3>
-              <ul className="space-y-3 text-[#64748B]">
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
-                  <span>Localiza a origem energética da dor</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
-                  <span>Mostra inflamações que exames não captam</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
-                  <span>Protocolo para eliminar a dor na raiz</span>
-                </li>
-              </ul>
-            </div>
+              <div className="bg-white p-8 rounded-xl border-t-4 border-[#F59E0B] shadow-lg">
+                <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Dores Crônicas</h3>
+                <ul className="space-y-3 text-[#64748B]">
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
+                    <span>Localiza a origem energética da dor</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
+                    <span>Mostra inflamações que exames não captam</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#F59E0B] flex-shrink-0" size={20} />
+                    <span>Protocolo para eliminar a dor na raiz</span>
+                  </li>
+                </ul>
+              </div>
 
-            <div className="bg-white p-8 rounded-xl border-t-4 border-[#EF4444] shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Sentir "Travado"</h3>
-              <ul className="space-y-3 text-[#64748B]">
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
-                  <span>Identifica bloqueios que impedem seu progresso</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
-                  <span>Mostra padrões energéticos que se repetem</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
-                  <span>Cria momentum para transformação real</span>
-                </li>
-              </ul>
+              <div className="bg-white p-8 rounded-xl border-t-4 border-[#EF4444] shadow-lg">
+                <h3 className="text-2xl font-bold mb-4 text-[#0F172A]">Para Sentir "Travado"</h3>
+                <ul className="space-y-3 text-[#64748B]">
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
+                    <span>Identifica bloqueios que impedem seu progresso</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
+                    <span>Mostra padrões energéticos que se repetem</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#EF4444] flex-shrink-0" size={20} />
+                    <span>Cria momentum para transformação real</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============================================
-          SEÇÃO "SOBRE CELSO BIFFE"
+          SEÇÃO "SOBRE CELSO LUIZ"
           ============================================ */}
       <section className="py-20 bg-white">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
-            Quem está por trás do BioSync em Araraquara?
-          </h2>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+              Quem está por trás do BioSync em Araraquara?
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <div>
-              <h3 className="text-3xl font-bold mb-6 text-[#0F172A]">Celso Biffe</h3>
-              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
-                Sou <strong>Engenheiro de Dados + Terapeuta Holístico Sênior</strong>.
-              </p>
-              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
-                Isso significa que eu não trabalho com suposições. Eu <strong>TRADUZO a frequência do seu corpo em dados acionáveis</strong>.
-              </p>
-              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
-                Passei anos estudando como a física quântica, a medicina tradicional chinesa e a terapia holística se conectam. E descobri algo poderoso:
-              </p>
-              <p className="text-xl font-bold text-[#2DD4BF] mb-6">
-                Quando você ENTENDE o que está desequilibrado no seu corpo (com dados, não com achismo), a cura fica 10x mais rápida.
-              </p>
-              <p className="text-lg text-[#64748B] leading-relaxed mb-6">
-                Minha metodologia une:
-              </p>
-              <ul className="space-y-3 text-[#64748B] mb-8">
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
-                  <span>O rigor científico da análise de dados</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
-                  <span>A profundidade da saúde integrativa</span>
-                </li>
-                <li className="flex gap-3">
-                  <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
-                  <span>A empatia de quem realmente escuta</span>
-                </li>
-              </ul>
-              <p className="text-lg font-bold text-[#0F172A] mb-6">
-                Não ofereço apenas terapia. Ofereço o caminho técnico para o seu equilíbrio real.
-              </p>
-              <p className="text-lg text-[#64748B] leading-relaxed">
-                Já ajudei centenas de pessoas em Araraquara a sair do ciclo de cansaço → médico → "exames normais" → mais cansaço.
-              </p>
-              <p className="text-xl font-bold text-[#2DD4BF] mt-6">
-                Agora é a sua vez.
-              </p>
-            </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-bold mb-6 text-[#0F172A]">Celso Luiz</h3>
+                <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                  Sou <strong>Engenheiro de Dados + Terapeuta Holístico</strong>.
+                </p>
+                <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                  Isso significa que eu não trabalho com suposições. Eu <strong>TRADUZO a frequência do seu corpo em dados acionáveis</strong>.
+                </p>
+                <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                  Passei anos estudando como a física quântica, a medicina tradicional chinesa e a terapia holística se conectam. E descobri algo poderoso:
+                </p>
+                <p className="text-xl font-bold text-[#2DD4BF] mb-6">
+                  Quando você ENTENDE o que está desequilibrado no seu corpo (com dados, não com achismo), a cura fica 10x mais rápida.
+                </p>
+                <p className="text-lg text-[#64748B] leading-relaxed mb-6">
+                  Minha metodologia une:
+                </p>
+                <ul className="space-y-3 text-[#64748B] mb-8">
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                    <span>O rigor científico da análise de dados</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                    <span>A profundidade da saúde integrativa</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="text-[#2DD4BF] flex-shrink-0" size={20} />
+                    <span>A empatia de quem realmente escuta</span>
+                  </li>
+                </ul>
+                <p className="text-lg font-bold text-[#0F172A] mb-6">
+                  Não ofereço apenas terapia. Ofereço o caminho técnico para o seu equilíbrio real.
+                </p>
+                <p className="text-lg text-[#64748B] leading-relaxed">
+                  Já ajudei centenas de pessoas em Araraquara a sair do ciclo de cansaço → médico → "exames normais" → mais cansaço.
+                </p>
+                <p className="text-xl font-bold text-[#2DD4BF] mt-6">
+                  Agora é a sua vez.
+                </p>
+              </div>
 
-            <div className="bg-gradient-to-br from-[#F0FDFA] to-[#ECFDF5] p-8 rounded-2xl border border-[#2DD4BF]">
-              <div className="bg-white p-8 rounded-xl shadow-lg">
-                <p className="text-center text-sm text-[#64748B] mb-4">Certificações e Expertise</p>
-                <div className="space-y-4 text-center">
-                  <p className="font-bold text-[#0F172A]">Engenheiro de Dados</p>
-                  <p className="text-[#64748B]">Análise de frequências e padrões</p>
-                  <hr className="my-4" />
-                  <p className="font-bold text-[#0F172A]">Terapeuta Holístico Sênior</p>
-                  <p className="text-[#64748B]">Saúde integrativa e bem-estar</p>
-                  <hr className="my-4" />
-                  <p className="font-bold text-[#0F172A]">Especialista em Bioressonância</p>
-                  <p className="text-[#64748B]">Análise QRMA e protocolos</p>
+              <div className="bg-gradient-to-br from-[#F0FDFA] to-[#ECFDF5] p-8 rounded-2xl border border-[#2DD4BF]">
+                <div className="bg-white p-8 rounded-xl shadow-lg">
+                  <p className="text-center text-sm text-[#64748B] mb-4">Certificações e Expertise</p>
+                  <div className="space-y-4 text-center">
+                    <p className="font-bold text-[#0F172A]">Engenheiro de Dados</p>
+                    <p className="text-[#64748B]">Análise de frequências e padrões</p>
+                    <hr className="my-4" />
+                    <p className="font-bold text-[#0F172A]">Terapeuta Holístico Sênior</p>
+                    <p className="text-[#64748B]">Saúde integrativa e bem-estar</p>
+                    <hr className="my-4" />
+                    <p className="font-bold text-[#0F172A]">Especialista em Bioressonância</p>
+                    <p className="text-[#64748B]">Análise QRMA e protocolos</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -534,37 +540,39 @@ export default function Home() {
           SEÇÃO "PROVA SOCIAL" - Depoimentos
           ============================================ */}
       <section className="py-20 bg-gradient-to-b from-white to-[#F0FDFA]">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#0F172A]">
-            Casos de Sucesso
-          </h2>
-          <p className="text-xl text-center text-[#64748B] mb-12">
-            Protocolos de BioSync que transformaram rotinas de burnout em alta performance
-          </p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#0F172A]">
+              Casos de Sucesso
+            </h2>
+            <p className="text-xl text-center text-[#64748B] mb-12">
+              Protocolos de BioSync que transformaram rotinas de burnout em alta performance
+            </p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 rounded-xl border-l-4 border-[#2DD4BF] shadow-lg">
-              <p className="text-[#64748B] leading-relaxed mb-6 italic">
-                "Fiz o BioSync e descobri que meu cansaço era por deficiência de magnésio + bloqueio emocional não resolvido. Em 3 semanas de protocolo, recuperei 80% da minha energia."
-              </p>
-              <p className="font-bold text-[#0F172A]">Marina, 42 anos</p>
-              <p className="text-sm text-[#2DD4BF]">Araraquara</p>
-            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-xl border-l-4 border-[#2DD4BF] shadow-lg">
+                <p className="text-[#64748B] leading-relaxed mb-6 italic">
+                  "Fiz o BioSync e descobri que meu cansaço era por deficiência de magnésio + bloqueio emocional não resolvido. Em 3 semanas de protocolo, recuperei 80% da minha energia."
+                </p>
+                <p className="font-bold text-[#0F172A]">Marina, 42 anos</p>
+                <p className="text-sm text-[#2DD4BF]">Araraquara</p>
+              </div>
 
-            <div className="bg-white p-8 rounded-xl border-l-4 border-[#A855F7] shadow-lg">
-              <p className="text-[#64748B] leading-relaxed mb-6 italic">
-                "Os médicos diziam que minha ansiedade era 'psicológica'. O BioSync mostrou desequilíbrio no meu sistema nervoso. Agora durmo bem e acordo tranquila."
-              </p>
-              <p className="font-bold text-[#0F172A]">Roberto, 55 anos</p>
-              <p className="text-sm text-[#A855F7]">Araraquara</p>
-            </div>
+              <div className="bg-white p-8 rounded-xl border-l-4 border-[#A855F7] shadow-lg">
+                <p className="text-[#64748B] leading-relaxed mb-6 italic">
+                  "Os médicos diziam que minha ansiedade era 'psicológica'. O BioSync mostrou desequilíbrio no meu sistema nervoso. Agora durmo bem e acordo tranquila."
+                </p>
+                <p className="font-bold text-[#0F172A]">Roberto, 55 anos</p>
+                <p className="text-sm text-[#A855F7]">Araraquara</p>
+              </div>
 
-            <div className="bg-white p-8 rounded-xl border-l-4 border-[#F59E0B] shadow-lg">
-              <p className="text-[#64748B] leading-relaxed mb-6 italic">
-                "Dores nas costas há 10 anos. Ninguém conseguia resolver. O BioSync mostrou que era inflamação crônica + bloqueio energético. Hoje estou 90% melhor."
-              </p>
-              <p className="font-bold text-[#0F172A]">Juliana, 38 anos</p>
-              <p className="text-sm text-[#F59E0B]">Araraquara</p>
+              <div className="bg-white p-8 rounded-xl border-l-4 border-[#F59E0B] shadow-lg">
+                <p className="text-[#64748B] leading-relaxed mb-6 italic">
+                  "Dores nas costas há 10 anos. Ninguém conseguia resolver. O BioSync mostrou que era inflamação crônica + bloqueio energético. Hoje estou 90% melhor."
+                </p>
+                <p className="font-bold text-[#0F172A]">Juliana, 38 anos</p>
+                <p className="text-sm text-[#F59E0B]">Araraquara</p>
+              </div>
             </div>
           </div>
         </div>
@@ -574,43 +582,45 @@ export default function Home() {
           SEÇÃO "LOCALIZAÇÃO"
           ============================================ */}
       <section className="py-20 bg-white">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
-            Estou Aqui em Araraquara Para Você
-          </h2>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-[#0F172A]">
+              Estou Aqui em Araraquara Para Você
+            </h2>
 
-          <div className="max-w-3xl mx-auto bg-gradient-to-br from-[#F0FDFA] to-[#ECFDF5] p-12 rounded-2xl border border-[#2DD4BF]">
-            <p className="text-lg text-[#64748B] leading-relaxed mb-8 text-center">
-              Você não precisa viajar para São Paulo ou cidades grandes.
-            </p>
-            <p className="text-lg text-[#64748B] leading-relaxed mb-8 text-center">
-              O BioSync está aqui, em Araraquara, com Celso Biffe.
-            </p>
-            <p className="text-lg text-[#64748B] leading-relaxed mb-12 text-center">
-              Venha conhecer o aparelho, tirar dúvidas e agendar seu check-up bioenergético em um ambiente acolhedor e seguro.
-            </p>
+            <div className="bg-gradient-to-br from-[#F0FDFA] to-[#ECFDF5] p-12 rounded-2xl border border-[#2DD4BF]">
+              <p className="text-lg text-[#64748B] leading-relaxed mb-8 text-center">
+                Você não precisa viajar para São Paulo ou cidades grandes.
+              </p>
+              <p className="text-lg text-[#64748B] leading-relaxed mb-8 text-center">
+                O BioSync está aqui, em Araraquara, com Celso Luiz.
+              </p>
+              <p className="text-lg text-[#64748B] leading-relaxed mb-12 text-center">
+                Venha conhecer o aparelho, tirar dúvidas e agendar seu check-up bioenergético em um ambiente acolhedor e seguro.
+              </p>
 
-            <div className="space-y-6 text-center">
-              <div className="bg-white p-6 rounded-lg">
-                <p className="text-sm text-[#64748B] mb-2">📍 Localização</p>
-                <p className="font-bold text-[#0F172A]">Araraquara, SP</p>
+              <div className="space-y-6 text-center">
+                <div className="bg-white p-6 rounded-lg">
+                  <p className="text-sm text-[#64748B] mb-2">📍 Localização</p>
+                  <p className="font-bold text-[#0F172A]">Araraquara, SP</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg">
+                  <p className="text-sm text-[#64748B] mb-2">📞 WhatsApp</p>
+                  <p className="font-bold text-[#0F172A]">+55 16 99793-4558</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg">
+                  <p className="text-sm text-[#64748B] mb-2">🕐 Horário</p>
+                  <p className="font-bold text-[#0F172A]">Seg-Sex: 9h-18h | Sábado: 9h-13h</p>
+                </div>
               </div>
-              <div className="bg-white p-6 rounded-lg">
-                <p className="text-sm text-[#64748B] mb-2">📞 WhatsApp</p>
-                <p className="font-bold text-[#0F172A]">+55 16 99793-4558</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg">
-                <p className="text-sm text-[#64748B] mb-2">🕐 Horário</p>
-                <p className="font-bold text-[#0F172A]">Seg-Sex: 9h-18h | Sábado: 9h-13h</p>
-              </div>
+
+              <button
+                onClick={handleAgendamento}
+                className="w-full mt-8 bg-[#10B981] hover:bg-[#059669] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all"
+              >
+                💬 Agende Agora via WhatsApp
+              </button>
             </div>
-
-            <button
-              onClick={handleAgendamento}
-              className="w-full mt-8 bg-[#10B981] hover:bg-[#059669] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all"
-            >
-              💬 Agende Agora via WhatsApp
-            </button>
           </div>
         </div>
       </section>
@@ -619,7 +629,7 @@ export default function Home() {
           CTA FINAL - URGÊNCIA GENTIL
           ============================================ */}
       <section className="py-20 bg-gradient-to-r from-[#0F172A] to-[#1E293B]">
-        <div className="container">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Não Deixe Seu Corpo Pedindo Ajuda
@@ -670,35 +680,37 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-[#0F172A] text-[#CBD5E1] py-12">
-        <div className="container">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <img
-                src="/Logo new1.png"
-                alt="Lunara Logo"
-                className="h-12 w-auto mb-4"
-              />
-              <p className="text-sm">Bioressonância e Terapias Holísticas em Araraquara</p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <img
+                  src="/Logo new1.png"
+                  alt="Lunara Logo"
+                  className="h-12 w-auto mb-4"
+                />
+                <p className="text-sm">Bioressonância e Terapias Holísticas em Araraquara</p>
+              </div>
+              <div>
+                <p className="font-bold mb-4">Contato</p>
+                <p className="text-sm">📞 +55 16 99793-4558</p>
+                <p className="text-sm">📍 Araraquara, SP</p>
+              </div>
+              <div>
+                <p className="font-bold mb-4">Horário</p>
+                <p className="text-sm">Seg-Sex: 9h-18h</p>
+                <p className="text-sm">Sábado: 9h-13h</p>
+              </div>
             </div>
-            <div>
-              <p className="font-bold mb-4">Contato</p>
-              <p className="text-sm">📞 +55 16 99793-4558</p>
-              <p className="text-sm">📍 Araraquara, SP</p>
+            <div className="border-t border-[#334155] pt-8 text-center text-sm">
+              <p>&copy; 2026 Lunara BioSync. Todos os direitos reservados.</p>
+              <p className="mt-2">Desenvolvido com ❤️ para sua saúde integral</p>
             </div>
-            <div>
-              <p className="font-bold mb-4">Horário</p>
-              <p className="text-sm">Seg-Sex: 9h-18h</p>
-              <p className="text-sm">Sábado: 9h-13h</p>
-            </div>
-          </div>
-          <div className="border-t border-[#334155] pt-8 text-center text-sm">
-            <p>&copy; 2026 Lunara BioSync. Todos os direitos reservados.</p>
-            <p className="mt-2">Desenvolvido com ❤️ para sua saúde integral</p>
           </div>
         </div>
       </footer>
       <WhatsAppButton />
-      <LeadCapturePopup
+      <LeadCapturePopup 
         pdfLink="https://seu-link-do-pdf-aqui.com/mapa-dos-7-sinais.pdf"
         emailDestino="seu-email@lunara.com.br"
         whatsappNumber="5516999999999"
